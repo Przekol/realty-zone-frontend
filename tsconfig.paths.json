@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "types": [
+        "../realty-zone-backend/src/@types"
+      ]
+    }
+  }
+}
