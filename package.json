@@ -2,13 +2,13 @@
   "name": "realty-zone-frontend",
   "private": true,
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,css,html,json}\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" \"{src,apps,libs,test}/**/*.tsx\" --fix",
     "prepare": "husky install"
   },
@@ -37,6 +37,7 @@
     "vite-plugin-checker": "^0.5.3"
   },
   "lint-staged": {
+    "*.{ts,tsx,js,jsx,css,html,json}": "npm run format",
     "*.{ts,tsx}": "npm run lint"
   }
 }
