@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const MainNavigation = () => {
+export const Navigation = () => {
   return (
     <nav>
       <ul>
