@@ -1,11 +1,11 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { ROUTES } from './data/routes';
 import { RootLayout } from './layouts/RootLayout';
 import { Home } from './pages/Home';
 import { SignIn } from './pages/SignIn';
 import { SignUp } from './pages/SignUp';
-import { ROUTES } from './routes/routes';
 
 const router = createBrowserRouter([
   {
