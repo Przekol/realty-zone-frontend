@@ -1,27 +1,13 @@
-import { AddIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
-import { Box, Button, Flex, HStack, IconButton, Link, Stack, useColorModeValue, useDisclosure } from '@chakra-ui/react';
-import React, { ReactNode } from 'react';
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { Box, Flex, HStack, IconButton, useColorModeValue, useDisclosure } from '@chakra-ui/react';
+import React from 'react';
 
-const Links = [
-  { to: '/announcements', label: 'Ogłoszenia' },
-  { to: '/my-account', label: 'Moje Konto' },
-  { to: '/add-announcement', label: 'Dodaj ogłoszenie', special: true },
-];
+import { NavigationLinks } from './NavigationLinks';
+import { NavigationMobile } from './NavigationMobile';
 
-const NavLink = ({ to, children }: { to: string; children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={to}
-  >
-    {children}
-  </Link>
-);
+import { links } from '../../data/links';
+import { Logo } from '../Logo';
+
 export const Navigation = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -36,38 +22,18 @@ export const Navigation = () => {
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <Box>Logo</Box>
+          <Logo />
           <HStack spacing={8} alignItems={'center'}>
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
-              {Links.filter((link) => !link.special).map((link) => (
-                <NavLink key={link.to} to={link.to}>
-                  {link.label}
-                </NavLink>
-              ))}
+              <NavigationLinks links={links} />
             </HStack>
             <Flex alignItems={'center'}>
-              {Links.filter((link) => link.special).map((link) => (
-                <NavLink key={link.to} to={link.to}>
-                  <Button variant={'solid'} colorScheme={'teal'} size={'sm'} mr={4} leftIcon={<AddIcon />}>
-                    {link.label}
-                  </Button>
-                </NavLink>
-              ))}
+              <NavigationLinks links={links} isSpecial={true} />
             </Flex>
           </HStack>
         </Flex>
 
-        {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-              {Links.filter((link) => !link.special).map((link) => (
-                <NavLink key={link.to} to={link.to}>
-                  {link.label}
-                </NavLink>
-              ))}
-            </Stack>
-          </Box>
-        ) : null}
+        {isOpen ? <NavigationMobile links={links} /> : null}
       </Box>
     </>
   );
