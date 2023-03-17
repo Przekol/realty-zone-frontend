@@ -20,27 +20,28 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier', 'simple-import-sort', 'import'],
+  plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier', 'import'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     camelcase: 'error',
     'spaced-comment': 'error',
     quotes: ['error', 'single'],
     'no-duplicate-imports': 'error',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
+        groups: ['external', 'builtin', 'internal', 'type', 'index', 'sibling', 'parent'],
         'newlines-between': 'always',
         alphabetize: { order: 'asc', caseInsensitive: true },
-      },
+      }
     ],
   },
   settings: {
     'import/resolver': {
-      typescript: {},
+      'typescript': {
+        'alwaysTryTypes': true,
+        'project': ['./tsconfig.json'],
+      },
     },
     react: {
       version: 'detect',
