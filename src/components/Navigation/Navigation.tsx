@@ -5,7 +5,7 @@ import React from 'react';
 import { NavigationLinks } from './NavigationLinks';
 import { NavigationMobile } from './NavigationMobile';
 
-import { links } from '../../data/links';
+import { navigationLinks } from '../../data/links';
 import { Logo } from '../Logo';
 
 export const Navigation = () => {
@@ -25,15 +25,15 @@ export const Navigation = () => {
           <Logo />
           <HStack spacing={8} alignItems={'center'}>
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
-              <NavigationLinks links={links} />
+              <NavigationLinks links={navigationLinks} />
             </HStack>
             <Flex alignItems={'center'}>
-              <NavigationLinks links={links} isSpecial={true} />
+              <NavigationLinks links={navigationLinks} isSpecial={true} />
             </Flex>
           </HStack>
         </Flex>
 
-        {isOpen ? <NavigationMobile links={links} /> : null}
+        {isOpen ? <NavigationMobile links={navigationLinks} /> : null}
       </Box>
     </>
   );

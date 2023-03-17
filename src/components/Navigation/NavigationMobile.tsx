@@ -1,12 +1,12 @@
 import { Box, Stack } from '@chakra-ui/react';
 import React from 'react';
 
-import { LinkType } from '@typesFrontend';
+import { MenuLink } from '@typesFrontend';
 
 import { NavigationLinks } from './NavigationLinks';
 
 interface Props {
-  links: LinkType[];
+  links: MenuLink[];
 }
 export const NavigationMobile = ({ links }: Props) => (
   <Box pb={4} display={{ md: 'none' }}>

@@ -2,12 +2,12 @@ import { AddIcon } from '@chakra-ui/icons';
 import { Button } from '@chakra-ui/react';
 import * as React from 'react';
 
-import { LinkType } from '@typesFrontend';
+import { MenuLink } from '@typesFrontend';
 
 import { NavigationLink } from './NavigationLink';
 
 interface Props {
-  links: LinkType[];
+  links: MenuLink[];
   isSpecial?: boolean;
 }
 export const NavigationLinks = ({ links, isSpecial }: Props) => (
