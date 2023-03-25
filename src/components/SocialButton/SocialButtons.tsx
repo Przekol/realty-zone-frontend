@@ -1,7 +1,7 @@
 import { Stack } from '@chakra-ui/react';
 import React from 'react';
 
-import { SocialLink } from '@frontendTypes';
+import { SocialLink } from '@typesFrontend';
 
 import { SocialButton } from './SocialButton';
 
