@@ -11,3 +11,9 @@ export interface SocialLink {
   label: string;
   icon: React.ElementType;
 }
+
+export interface FormLink {
+  to: string;
+  label: string;
+  text: string;
+}
