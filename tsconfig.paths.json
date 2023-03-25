@@ -2,8 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@typesFrontend": ["./src/types"],
-      "@typesBackend": ["../realty-zone-backend/src/types"]
+      "@frontendTypes": ["./src/types"],
+      "@backendTypes": ["../realty-zone-backend/src/types"]
     }
   }
 }
