@@ -1,6 +1,8 @@
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
-import { MenuLink, SocialLink } from '@frontendTypes';
+import { FormLink, MenuLink, SocialLink } from '@frontendTypes';
+
+import { ROUTES } from './routes';
 
 export const navigationLinks: MenuLink[] = [
   { to: '/announcements', label: 'Ogłoszenia' },
@@ -16,7 +18,9 @@ export const footerLinks: MenuLink[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: 'Twitter', href: '#', icon: FaTwitter },
-  { label: 'YouTube', href: '#', icon: FaYoutube },
-  { label: 'Instagram', href: '#', icon: FaInstagram },
+  { label: 'Twitter', to: '#', icon: FaTwitter },
+  { label: 'YouTube', to: '#', icon: FaYoutube },
+  { label: 'Instagram', to: '#', icon: FaInstagram },
 ];
+
+export const signupLinks: FormLink[] = [{ to: ROUTES.signIn, label: 'Zaloguj się', text: 'Masz już konto?' }];
