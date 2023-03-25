@@ -13,7 +13,7 @@ export const SocialButtons = ({ links }: Props) => {
   return (
     <Stack direction={'row'} spacing={6}>
       {links.map((link) => (
-        <SocialButton key={link.label} label={link.label} href={link.href}>
+        <SocialButton key={link.label} label={link.label} href={link.to}>
           <link.icon />
         </SocialButton>
       ))}

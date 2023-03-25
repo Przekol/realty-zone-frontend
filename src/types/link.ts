@@ -7,7 +7,7 @@ export interface MenuLink {
 }
 
 export interface SocialLink {
+  to: string;
   label: string;
-  href: string;
   icon: React.ElementType;
 }

@@ -16,7 +16,7 @@ export const footerLinks: MenuLink[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: 'Twitter', href: '#', icon: FaTwitter },
-  { label: 'YouTube', href: '#', icon: FaYoutube },
-  { label: 'Instagram', href: '#', icon: FaInstagram },
+  { label: 'Twitter', to: '#', icon: FaTwitter },
+  { label: 'YouTube', to: '#', icon: FaYoutube },
+  { label: 'Instagram', to: '#', icon: FaInstagram },
 ];
