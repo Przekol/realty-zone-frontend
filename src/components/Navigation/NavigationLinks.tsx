@@ -2,7 +2,7 @@ import { AddIcon } from '@chakra-ui/icons';
 import { Button } from '@chakra-ui/react';
 import * as React from 'react';
 
-import { MenuLink } from '@typesFrontend';
+import { MenuLink } from '@frontendTypes';
 
 import { NavigationLink } from './NavigationLink';
 

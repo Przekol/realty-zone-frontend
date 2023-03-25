@@ -1,7 +1,7 @@
 import { Link, Stack } from '@chakra-ui/react';
 import React from 'react';
 
-import { MenuLink } from '@typesFrontend';
+import { MenuLink } from '@frontendTypes';
 
 interface Props {
   links: MenuLink[];
