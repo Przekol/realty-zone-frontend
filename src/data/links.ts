@@ -24,3 +24,12 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const signupLinks: FormLink[] = [{ to: ROUTES.signIn, label: 'Zaloguj się', text: 'Masz już konto?' }];
+
+export const signInLinks: FormLink[] = [
+  { to: ROUTES.signUp, label: 'Zarejestruj się', text: 'Nie masz jeszcze konta?' },
+  {
+    to: ROUTES.forgetPassword,
+    label: 'Przypomnij hasło',
+    text: 'Zapomniałeś hasła?',
+  },
+];
