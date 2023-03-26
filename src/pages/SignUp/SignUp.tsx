@@ -3,7 +3,7 @@ import { FormControl, FormLabel, Input, InputGroup, InputRightElement, Stack, Bu
 import React, { useState } from 'react';
 
 import { FormButton, FormCard, FormContainer, FormFooter, FormHeading } from '../../components/Form';
-import { signupLinks } from '../../data/links';
+import { signUpLinks } from '../../data/links';
 
 export const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -36,7 +36,7 @@ export const SignUp = () => {
               </InputGroup>
             </FormControl>
             <FormButton>Zarejestruj się</FormButton>
-            <FormFooter links={signupLinks} />
+            <FormFooter links={signUpLinks} />
           </Stack>
         </FormCard>
       </Stack>
