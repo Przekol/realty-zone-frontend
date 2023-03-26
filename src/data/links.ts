@@ -23,7 +23,7 @@ export const socialLinks: SocialLink[] = [
   { label: 'Instagram', to: '#', icon: FaInstagram },
 ];
 
-export const signupLinks: FormLink[] = [{ to: ROUTES.signIn, label: 'Zaloguj się', text: 'Masz już konto?' }];
+export const signUpLinks: FormLink[] = [{ to: ROUTES.signIn, label: 'Zaloguj się', text: 'Masz już konto?' }];
 
 export const signInLinks: FormLink[] = [
   { to: ROUTES.signUp, label: 'Zarejestruj się', text: 'Nie masz jeszcze konta?' },
