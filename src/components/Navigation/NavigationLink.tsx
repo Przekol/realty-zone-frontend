@@ -7,10 +7,9 @@ export const NavigationLink = ({ to, children }: { to: string; children: ReactNo
     as={RouterLink}
     px={2}
     py={1}
-    rounded={'md'}
     _hover={{
       textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
+      color: useColorModeValue('blue.500', 'blue.700'),
     }}
     to={to}
   >
