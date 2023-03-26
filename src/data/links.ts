@@ -23,13 +23,21 @@ export const socialLinks: SocialLink[] = [
   { label: 'Instagram', to: '#', icon: FaInstagram },
 ];
 
-export const signUpLinks: FormLink[] = [{ to: ROUTES.signIn, label: 'Zaloguj się', text: 'Masz już konto?' }];
-
-export const signInLinks: FormLink[] = [
-  { to: ROUTES.signUp, label: 'Zarejestruj się', text: 'Nie masz jeszcze konta?' },
-  {
+const formLinks: { [key: string]: FormLink } = {
+  signUp: { to: ROUTES.signUp, label: 'Zarejestruj się', text: 'Nie masz jeszcze konta?' },
+  signIn: {
+    to: ROUTES.signIn,
+    label: 'Zaloguj się',
+    text: 'Masz już konto?',
+  },
+  forgetPassword: {
     to: ROUTES.forgetPassword,
     label: 'Przypomnij hasło',
     text: 'Zapomniałeś hasła?',
   },
-];
+};
+export const signUpLinks = [formLinks.signIn];
+
+export const signInLinks = [formLinks.signUp, formLinks.forgetPassword];
+
+export const forgetPasswordLinks = [formLinks.signUp];
