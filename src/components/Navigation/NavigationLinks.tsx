@@ -17,7 +17,7 @@ export const NavigationLinks = ({ links, isSpecial }: Props) => (
       .map((link) => (
         <NavigationLink key={link.to} to={link.to}>
           {isSpecial ? (
-            <Button variant={'solid'} colorScheme={'teal'} size={'sm'} mr={4} leftIcon={<AddIcon />}>
+            <Button variant={'solid'} rounded={'full'} colorScheme={'blue'} size={'sm'} mr={4} leftIcon={<AddIcon />}>
               {link.label}
             </Button>
           ) : (
