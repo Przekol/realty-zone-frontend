@@ -1,4 +1,4 @@
-import { Heading, Stack, Text } from '@chakra-ui/react';
+import { Heading, Stack, Text, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
 interface Props {
@@ -11,7 +11,7 @@ export const FormHeading = ({ title, description }: Props) => {
       <Heading fontSize={'4xl'} textAlign={'center'}>
         {title}
       </Heading>
-      <Text fontSize={'lg'} color={'gray.600'}>
+      <Text fontSize={'lg'} textAlign={'center'} color={useColorModeValue('gray.800', 'gray.400')}>
         {description}
       </Text>
     </Stack>
