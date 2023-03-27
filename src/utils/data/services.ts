@@ -1,6 +1,6 @@
 import { Service } from '@frontendTypes';
 
-import { RealEstatePurchase, RealEstateRental, RealEstateSales } from '../assets/our-services';
+import { RealEstatePurchase, RealEstateRental, RealEstateSales } from '../../assets/our-services';
 
 export const services: Service[] = [
   {

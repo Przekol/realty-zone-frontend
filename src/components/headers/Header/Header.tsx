@@ -1,7 +1,8 @@
 import { Flex } from '@chakra-ui/react';
 import React from 'react';
 
-import { OVERLAYS } from '../../../data/overlays';
+import { OVERLAYS } from '@utils/data/overlays';
+
 import { BackgroundOverlay } from '../../BackgroundOverlay';
 
 interface Props {

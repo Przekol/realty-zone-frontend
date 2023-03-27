@@ -1,9 +1,10 @@
 import React from 'react';
 
+import { homeHeaderHeroButtons } from '@utils/data/hero-buttons';
+
 import { Header } from './Header';
 
 import { HeroHeaderHome } from '../../assets';
-import { homeHeaderHeroButtons } from '../../data/hero-buttons';
 import { Hero } from '../Hero/Hero';
 
 export const HomeHeader = () => (

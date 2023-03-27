@@ -1,8 +1,9 @@
 import React from 'react';
 
+import { services } from '@utils/data/services';
+
 import { HomeHeader } from '../../components/headers';
 import { ServicesSection } from '../../components/sections/ServicesSection';
-import { services } from '../../data/services';
 
 export const Home = () => {
   return (

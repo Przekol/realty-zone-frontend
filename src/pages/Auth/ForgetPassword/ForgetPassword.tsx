@@ -1,8 +1,9 @@
 import { FormControl, Input, Stack } from '@chakra-ui/react';
 import React from 'react';
 
+import { forgetPasswordLinks } from '@utils/data/links';
+
 import { FormButton, FormCard, FormContainer, FormFooter, FormHeading } from '../../../components/Form';
-import { forgetPasswordLinks } from '../../../data/links';
 
 export const ForgetPassword = () => {
   return (

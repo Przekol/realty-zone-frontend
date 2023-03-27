@@ -2,10 +2,11 @@ import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Flex, HStack, IconButton, useColorModeValue, useDisclosure } from '@chakra-ui/react';
 import React from 'react';
 
+import { navigationLinks } from '@utils/data/links';
+
 import { NavigationLinks } from './NavigationLinks';
 import { NavigationMobile } from './NavigationMobile';
 
-import { navigationLinks } from '../../data/links';
 import { Logo } from '../Logo';
 
 export const Navigation = () => {

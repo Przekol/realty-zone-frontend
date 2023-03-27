@@ -1,9 +1,10 @@
 import { Box, Container, Stack, Text, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
+import { footerLinks, socialLinks } from '@utils/data/links';
+
 import { FooterMenu } from './FooterMenu';
 
-import { footerLinks, socialLinks } from '../../data/links';
 import { Logo } from '../Logo';
 import { SocialButtons } from '../SocialButton';
 
