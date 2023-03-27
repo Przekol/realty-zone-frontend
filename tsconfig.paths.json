@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@frontendTypes": ["./src/types"],
-      "@backendTypes": ["../realty-zone-backend/src/types"]
+      "@backendTypes": ["../realty-zone-backend/src/types"],
+      "@utils/*": ["./src/utils/*"]
     }
   }
 }

@@ -9,11 +9,12 @@ export default (config) => {
   process.env = { ...process.env, ...loadEnv(config.mode, process.cwd()) };
 
   return defineConfig({
-    plugins: [react(), checker({ typescript: true })],
     resolve: {
       alias: {
         '@backendTypes': path.resolve(__dirname, process.env.VITE_BACKEND_TYPES_PATH),
+        '@utils': path.resolve(__dirname, './src/utils'),
       },
     },
+    plugins: [react(), checker({ typescript: true })],
   });
 };
