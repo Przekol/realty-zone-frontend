@@ -2,8 +2,8 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { FormControl, FormLabel, Input, InputGroup, InputRightElement, Stack, Button } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
-import { FormButton, FormCard, FormContainer, FormFooter, FormHeading } from '../../components/Form';
-import { signUpLinks } from '../../data/links';
+import { FormButton, FormCard, FormContainer, FormFooter, FormHeading } from '../../../components/Form';
+import { signUpLinks } from '../../../data/links';
 
 export const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);

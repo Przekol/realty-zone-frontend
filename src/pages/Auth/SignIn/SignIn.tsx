@@ -1,8 +1,8 @@
 import { FormControl, FormLabel, Input, Stack } from '@chakra-ui/react';
 import React from 'react';
 
-import { FormButton, FormCard, FormContainer, FormFooter, FormHeading } from '../../components/Form';
-import { signInLinks } from '../../data/links';
+import { FormButton, FormCard, FormContainer, FormFooter, FormHeading } from '../../../components/Form';
+import { signInLinks } from '../../../data/links';
 
 export const SignIn = () => {
   return (
