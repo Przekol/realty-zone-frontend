@@ -1,6 +1,6 @@
 import { HeroButtons } from '@frontendTypes';
 
-import { ROUTES } from './routes';
+import { ROUTES } from '../routes';
 
 export const homeHeaderHeroButtons: HeroButtons[] = [
   {

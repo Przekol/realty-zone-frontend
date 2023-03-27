@@ -1,5 +1,5 @@
 export const useAuth = () => {
-  const user = false;
+  const user = true;
 
   return { user };
 };
