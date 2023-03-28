@@ -56,6 +56,10 @@ module.exports = {
             pattern: '@assets',
             group: 'internal',
           },
+          {
+            pattern: '@ui/**',
+            group: 'internal',
+          },
         ],
       },
     ],
