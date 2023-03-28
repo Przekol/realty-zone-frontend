@@ -5,11 +5,12 @@
       "@frontendTypes": ["./src/types"],
       "@backendTypes": ["../realty-zone-backend/src/types"],
       "@utils/*": ["./src/utils/*"],
-      "@routes": ["./src/routes"],
+      "@routes/*": ["./src/routes/*"],
       "@assets": ["./src/assets"],
       "@ui/*": ["./src/components/ui/*"],
       "@base/*": ["./src/components/base/*"],
-      "@templates/*": ["./src/components/templates/*"]
+      "@templates/*": ["./src/components/templates/*"],
+      "@pages/*": ["./src/components/pages/*"]
     }
   }
 }

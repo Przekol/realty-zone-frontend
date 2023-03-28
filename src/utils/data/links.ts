@@ -1,8 +1,8 @@
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
-import { FormLink, MenuLink, SocialLink } from '@frontendTypes';
+import { ROUTES } from '@routes/routes';
 
-import { ROUTES } from '../../routes';
+import { FormLink, MenuLink, SocialLink } from '@frontendTypes';
 
 export const navigationLinks: MenuLink[] = [
   { to: '/announcements', label: 'Ogłoszenia' },

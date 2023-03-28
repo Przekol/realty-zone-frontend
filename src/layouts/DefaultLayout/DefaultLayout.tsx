@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Footer } from '../../components/Footer';
-import { Navigation } from '../../components/Navigation';
+import { MainFooter } from '@templates/footers';
+import { MainNavigation } from '@templates/navigations';
 
 interface Props {
   children: React.ReactNode;
@@ -9,8 +9,8 @@ interface Props {
 
 export const DefaultLayout = ({ children }: Props) => (
   <>
-    <Navigation />
+    <MainNavigation />
     {children}
-    <Footer />
+    <MainFooter />
   </>
 );

@@ -49,7 +49,7 @@ module.exports = {
             group: 'internal',
           },
           {
-            pattern: '@routes',
+            pattern: '@routes/**',
             group: 'internal',
           },
           {
@@ -66,6 +66,10 @@ module.exports = {
           },
           {
             pattern: '@templates/**',
+            group: 'internal',
+          },
+          {
+            pattern: '@pages/**',
             group: 'internal',
           },
         ],

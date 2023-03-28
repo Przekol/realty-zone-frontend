@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { PrivateRoute } from '../../components/PrivateRoute';
+import { PrivateRoute } from '@routes/PrivateRoute';
+
 import { DefaultLayout } from '../DefaultLayout';
 
 export const AuthorizedLayout = () => {
