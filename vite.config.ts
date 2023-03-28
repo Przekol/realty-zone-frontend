@@ -17,6 +17,7 @@ export default (config) => {
         '@assets': path.resolve(__dirname, './src/assets'),
         '@ui': path.resolve(__dirname, './src/components/ui'),
         '@base': path.resolve(__dirname, './src/components/base'),
+        '@templates': path.resolve(__dirname, './src/components/templates'),
       },
     },
     plugins: [react(), checker({ typescript: true })],

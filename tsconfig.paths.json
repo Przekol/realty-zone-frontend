@@ -8,7 +8,8 @@
       "@routes": ["./src/routes"],
       "@assets": ["./src/assets"],
       "@ui/*": ["./src/components/ui/*"],
-      "@base/*": ["./src/components/base/*"]
+      "@base/*": ["./src/components/base/*"],
+      "@templates/*": ["./src/components/templates/*"]
     }
   }
 }

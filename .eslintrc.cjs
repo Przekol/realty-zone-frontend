@@ -59,8 +59,13 @@ module.exports = {
           {
             pattern: '@ui/**',
             group: 'internal',
-          },{
+          },
+          {
             pattern: '@base/**',
+            group: 'internal',
+          },
+          {
+            pattern: '@templates/**',
             group: 'internal',
           },
         ],
