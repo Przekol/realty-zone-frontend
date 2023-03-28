@@ -4,7 +4,9 @@
     "paths": {
       "@frontendTypes": ["./src/types"],
       "@backendTypes": ["../realty-zone-backend/src/types"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@routes": ["./src/routes"],
+      "@assets": ["./src/assets"]
     }
   }
 }

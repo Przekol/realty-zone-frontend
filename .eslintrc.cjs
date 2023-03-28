@@ -48,6 +48,14 @@ module.exports = {
             pattern: '@utils/**',
             group: 'internal',
           },
+          {
+            pattern: '@routes',
+            group: 'internal',
+          },
+          {
+            pattern: '@assets',
+            group: 'internal',
+          },
         ],
       },
     ],

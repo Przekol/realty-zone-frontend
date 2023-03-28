@@ -13,6 +13,8 @@ export default (config) => {
       alias: {
         '@backendTypes': path.resolve(__dirname, process.env.VITE_BACKEND_TYPES_PATH),
         '@utils': path.resolve(__dirname, './src/utils'),
+        '@routes': path.resolve(__dirname, './src/routes'),
+        '@assets': path.resolve(__dirname, './src/assets'),
       },
     },
     plugins: [react(), checker({ typescript: true })],
