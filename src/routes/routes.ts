@@ -7,4 +7,5 @@ export const ROUTES = {
   contact: '/contact',
   offers: '/offers',
   myAccount: '/my-account',
+  successfulSignUp: '/auth/successful-sign-up',
 };
