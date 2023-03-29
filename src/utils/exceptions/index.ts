@@ -1,3 +1,4 @@
-import { CustomError } from './custom-error';
+import { CustomError } from './custom-error/custom-error';
+import { errorMessages } from './error-messages/error-messages';
 
-export { CustomError };
+export { CustomError, errorMessages };
