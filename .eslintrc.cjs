@@ -72,6 +72,10 @@ module.exports = {
             pattern: '@pages/**',
             group: 'internal',
           },
+          {
+            pattern: '@forms/**',
+            group: 'internal',
+          },
         ],
       },
     ],

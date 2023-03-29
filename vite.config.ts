@@ -19,6 +19,7 @@ export default (config) => {
         '@base': path.resolve(__dirname, './src/components/base'),
         '@templates': path.resolve(__dirname, './src/components/templates'),
         '@pages': path.resolve(__dirname, './src/components/pages'),
+        '@forms': path.resolve(__dirname, './src/components/forms'),
       },
     },
     plugins: [react(), checker({ typescript: true })],
