@@ -9,12 +9,13 @@ export const SuccessfulSignUp = () => {
   return (
     <AuthFormContainer>
       <Information
-        Icon={CheckCircleIcon}
         title='Dziękujemy za rejestracje'
         content='Sprawdź swoją skrzynkę odbiorczą i kliknij w link aktywacyjny, aby aktywować swoje konto.'
         to={ROUTES.signIn}
         buttonText='Zaloguj się'
-      />
+      >
+        <CheckCircleIcon boxSize={'50px'} color={'green.500'} />
+      </Information>
     </AuthFormContainer>
   );
 };

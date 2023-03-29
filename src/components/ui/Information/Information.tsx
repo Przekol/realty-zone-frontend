@@ -1,22 +1,27 @@
-import { IconProps } from '@chakra-ui/icons';
-import { Box, Button, ComponentWithAs, Heading, Text } from '@chakra-ui/react';
-import React from 'react';
+import { Box, Button, Heading, Text } from '@chakra-ui/react';
+import React, { ReactNode } from 'react';
 
 import { CustomLink } from '@base/CustomLink';
 interface Props {
   title: string;
+  subTitle?: string;
   content: string;
   to: string;
   buttonText: string;
-  Icon: ComponentWithAs<'svg', IconProps>;
+  children: ReactNode;
 }
 
-export const Information = ({ title, content, to, buttonText, Icon }: Props) => (
+export const Information = ({ title, content, to, buttonText, subTitle, children }: Props) => (
   <Box textAlign='center' py={10} px={6}>
-    <Icon boxSize={'50px'} color={'green.500'} />
+    {children}
     <Heading as='h2' size='xl' mt={6} mb={2}>
       {title}
     </Heading>
+    {subTitle && (
+      <Heading as='h3' size='md' mt={6} mb={2}>
+        {subTitle}
+      </Heading>
+    )}
     <Text color={'gray.500'}>{content}</Text>
     <CustomLink to={to}>
       <Button colorScheme='blue' color='white' variant='solid' mt={8}>
