@@ -3,14 +3,15 @@
     "baseUrl": ".",
     "paths": {
       "@frontendTypes": ["./src/types"],
-      "@backendTypes": ["../realty-zone-backend/src/types"],
+      "@backendTypes": ["../realty-zone-backend/@types"],
       "@utils/*": ["./src/utils/*"],
       "@routes/*": ["./src/routes/*"],
       "@assets": ["./src/assets"],
       "@ui/*": ["./src/components/ui/*"],
       "@base/*": ["./src/components/base/*"],
       "@templates/*": ["./src/components/templates/*"],
-      "@pages/*": ["./src/components/pages/*"]
+      "@pages/*": ["./src/components/pages/*"],
+      "@forms/*": ["./src/components/forms/*"]
     }
   }
 }
