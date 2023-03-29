@@ -9,7 +9,14 @@ interface Props extends ChakraLinkProps {
 
 export const CustomLink = ({ children, to, ...rest }: Props) => {
   return (
-    <Link as={RouterLink} to={to} {...rest}>
+    <Link
+      as={RouterLink}
+      to={to}
+      _hover={{
+        textDecoration: 'none',
+      }}
+      {...rest}
+    >
       {children}
     </Link>
   );
