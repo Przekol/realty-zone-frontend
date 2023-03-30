@@ -1,10 +1,10 @@
-import { LoaderFunctionArgs, redirect } from 'react-router-dom';
+import { ActionFunctionArgs, redirect } from 'react-router-dom';
 
 import { ROUTES } from '@routes/routes';
 
 import { signUpApi } from '../../api/auth';
 
-export const SignUpAction = async ({ request }: LoaderFunctionArgs) => {
+export const SignUpAction = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
 
   const email = formData.get('email') as string;
