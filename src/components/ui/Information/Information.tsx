@@ -1,32 +1,53 @@
-import { Box, Button, Heading, Text } from '@chakra-ui/react';
-import React, { ReactNode } from 'react';
+import { Box } from '@chakra-ui/react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { CustomLink } from '@base/CustomLink';
-interface Props {
-  title: string;
-  subTitle?: string;
-  content: string;
-  to: string;
-  buttonText: string;
-  children: ReactNode;
-}
+import {
+  DescriptionInformation,
+  ErrorIcon,
+  InfoIcon,
+  SubTitleInformation,
+  SuccessIcon,
+  TitleInformation,
+  WarningIcon,
+} from '@ui/Information/components';
+import { ButtonInformation } from '@ui/Information/components/ButtonInformation';
 
-export const Information = ({ title, content, to, buttonText, subTitle, children }: Props) => (
-  <Box textAlign='center' py={10} px={6}>
-    {children}
-    <Heading as='h2' size='xl' mt={6} mb={2}>
-      {title}
-    </Heading>
-    {subTitle && (
-      <Heading as='h3' size='md' mt={6} mb={2}>
-        {subTitle}
-      </Heading>
-    )}
-    <Text color={'gray.500'}>{content}</Text>
-    <CustomLink to={to}>
-      <Button colorScheme='blue' color='white' variant='solid' mt={8}>
-        {buttonText}
-      </Button>
-    </CustomLink>
-  </Box>
-);
+import { InfoType, MessageInformation } from '@frontendTypes';
+
+type Props = MessageInformation;
+
+export const Information = ({ title, description, to, buttonName, subTitle, type }: Props) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    if (typeof to === 'number') {
+      navigate(to);
+    } else {
+      navigate(to);
+    }
+  };
+
+  const renderIcon = (type: InfoType) => {
+    switch (type) {
+      case 'success':
+        return <SuccessIcon />;
+      case 'error':
+        return <ErrorIcon />;
+      case 'warning':
+        return <WarningIcon />;
+      case 'info':
+      default:
+        return <InfoIcon />;
+    }
+  };
+
+  return (
+    <Box textAlign='center'>
+      {renderIcon(type)}
+      <TitleInformation>{title}</TitleInformation>
+      {subTitle && <SubTitleInformation>{subTitle}</SubTitleInformation>}
+      <DescriptionInformation>{description}</DescriptionInformation>
+      <ButtonInformation onClick={handleClick}>{buttonName}</ButtonInformation>
+    </Box>
+  );
+};
