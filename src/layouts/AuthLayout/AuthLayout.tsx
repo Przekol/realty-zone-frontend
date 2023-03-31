@@ -1,4 +1,10 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-export const AuthLayout = () => <Outlet />;
+import { ContentWrapper } from '@base/ContentWrapper';
+
+export const AuthLayout = () => (
+  <ContentWrapper>
+    <Outlet />
+  </ContentWrapper>
+);

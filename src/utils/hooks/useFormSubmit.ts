@@ -2,7 +2,7 @@ import { FieldValues, SubmitHandler } from 'react-hook-form';
 import { FormMethod, useSubmit } from 'react-router-dom';
 
 export interface UseFormSubmitOptions<T extends FieldValues> {
-  reset: () => void;
+  reset?: () => void;
   method: FormMethod;
 }
 
@@ -16,7 +16,9 @@ export function useFormSubmit<T extends FieldValues>(options: UseFormSubmitOptio
 
   const onSubmit: SubmitHandler<T> = (data: T) => {
     submit({ ...data }, { method });
-    reset();
+    if (reset) {
+      reset();
+    }
   };
 
   return { onSubmit };

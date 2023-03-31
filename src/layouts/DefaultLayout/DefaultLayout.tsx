@@ -1,3 +1,4 @@
+import { Flex } from '@chakra-ui/react';
 import React from 'react';
 
 import { MainFooter } from '@templates/footers';
@@ -8,9 +9,9 @@ interface Props {
 }
 
 export const DefaultLayout = ({ children }: Props) => (
-  <>
+  <Flex direction='column' minHeight='100vh'>
     <MainNavigation />
     {children}
     <MainFooter />
-  </>
+  </Flex>
 );
