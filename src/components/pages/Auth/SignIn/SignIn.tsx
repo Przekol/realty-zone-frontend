@@ -1,13 +1,14 @@
 import { FormControl, FormLabel, Input, Stack } from '@chakra-ui/react';
 import React from 'react';
 
+import { CenterContainer } from '@base/CenterContainer';
 import { AuthFormButton, AuthFormCard, AuthFormLinks } from '@ui/auths';
 import { AuthFormCaption } from '@ui/captions';
 import { signInLinks } from '@utils/data/links';
 
 export const SignIn = () => {
   return (
-    <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+    <CenterContainer maxW={'md'}>
       <AuthFormCaption title='Zaloguj się' description='i ciesz się wszystkimi naszymi funkcjonalnościami' />
       <AuthFormCard>
         <Stack spacing={4}>
@@ -23,6 +24,6 @@ export const SignIn = () => {
           <AuthFormLinks links={signInLinks} />
         </Stack>
       </AuthFormCard>
-    </Stack>
+    </CenterContainer>
   );
 };

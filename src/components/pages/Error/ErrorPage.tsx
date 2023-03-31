@@ -1,10 +1,10 @@
 import React from 'react';
 import { useRouteError } from 'react-router-dom';
 
+import { CenterContainer } from '@base/CenterContainer';
 import { ContentWrapper } from '@base/ContentWrapper';
+import { DefaultLayout } from '@layouts';
 import { Information } from '@ui/Information/Information';
-
-import { DefaultLayout } from '../../../layouts/DefaultLayout';
 
 export const ErrorPage = () => {
   const error = useRouteError() as any;
@@ -14,14 +14,16 @@ export const ErrorPage = () => {
   return (
     <DefaultLayout>
       <ContentWrapper>
-        <Information
-          title={title}
-          subTitle={subTitle}
-          description={description}
-          buttonName={'Powrót'}
-          type={'error'}
-          to={-1}
-        />
+        <CenterContainer>
+          <Information
+            title={title}
+            subTitle={subTitle}
+            description={description}
+            buttonName={'Powrót'}
+            type={'error'}
+            to={-1}
+          />
+        </CenterContainer>
       </ContentWrapper>
     </DefaultLayout>
   );
