@@ -6,6 +6,7 @@
       "@backendTypes": ["../realty-zone-backend/src/types"],
       "@utils/*": ["./src/utils/*"],
       "@services/*": ["./src/services/*"],
+      "@context/*": ["./src/context/*"],
       "@layouts": ["./src/layouts"],
       "@routes/*": ["./src/routes/*"],
       "@assets": ["./src/assets"],

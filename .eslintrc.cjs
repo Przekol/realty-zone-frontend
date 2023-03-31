@@ -75,11 +75,17 @@ module.exports = {
           {
             pattern: '@forms/**',
             group: 'internal',
-          },{
+          },
+          {
             pattern: '@services/**',
             group: 'internal',
-          },{
+          },
+          {
             pattern: '@layouts',
+            group: 'internal',
+          },
+          {
+            pattern: '@context/**',
             group: 'internal',
           },
         ],
