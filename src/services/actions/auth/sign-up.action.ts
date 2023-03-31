@@ -1,8 +1,7 @@
 import { ActionFunctionArgs, redirect } from 'react-router-dom';
 
 import { ROUTES } from '@routes/routes';
-
-import { signUpApi } from '../../api/auth';
+import { signUpApi } from '@services/api/methods/auth';
 
 export const SignUpAction = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
@@ -12,5 +11,5 @@ export const SignUpAction = async ({ request }: ActionFunctionArgs) => {
 
   await signUpApi({ email, password });
 
-  return redirect(ROUTES.successfulSignUp);
+  return redirect(ROUTES.auth.successful.signUp);
 };
