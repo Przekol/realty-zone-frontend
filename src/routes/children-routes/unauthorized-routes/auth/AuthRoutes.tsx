@@ -4,7 +4,7 @@ import { Navigate, Outlet, RouteObject } from 'react-router-dom';
 import { AuthErrorPage, ForgetPassword, SignIn, SignUp } from '@pages/Auth';
 import { StatusMessage } from '@pages/StatusMessage';
 import { ROUTES } from '@routes/routes';
-import { SignUpAction } from '@services/actions';
+import { SignInAction, SignUpAction } from '@services/actions';
 import { ActivateAccountLoader } from '@services/loaders';
 import { authMessages } from '@utils/data/messages';
 
@@ -25,6 +25,7 @@ export const authRoutes: RouteObject[] = [
   {
     path: ROUTES.auth.signIn,
     element: <SignIn />,
+    action: SignInAction,
   },
   {
     path: ROUTES.auth.signUp,
