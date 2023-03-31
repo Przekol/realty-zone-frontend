@@ -11,7 +11,7 @@ export const authMessages: AuthMessages = {
     title: 'Dziękujemy za rejestracje',
     description: 'Sprawdź swoją skrzynkę odbiorczą i kliknij w link aktywacyjny, aby aktywować swoje konto.',
     buttonName: 'Zaloguj się',
-    to: ROUTES.signIn,
+    to: ROUTES.auth.signIn,
     type: 'success',
   },
 };

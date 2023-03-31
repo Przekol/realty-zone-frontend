@@ -9,7 +9,7 @@ export const PrivateRoute = () => {
   const { user } = useAuth();
 
   if (!user) {
-    return <Navigate to={ROUTES.signIn} />;
+    return <Navigate to={ROUTES.auth.signIn} />;
   }
   return <Outlet />;
 };

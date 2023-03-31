@@ -5,33 +5,33 @@ import { ROUTES } from '@routes/routes';
 import { FormLink, MenuLink, SocialLink } from '@frontendTypes';
 
 export const navigationLinks: MenuLink[] = [
-  { to: '/announcements', label: 'Ogłoszenia' },
-  { to: '/my-account', label: 'Moje Konto' },
-  { to: '/add-announcement', label: 'Dodaj ogłoszenie', special: true },
+  { to: ROUTES.offers, label: 'Ogłoszenia' },
+  { to: ROUTES.myAccount.base, label: 'Moje Konto' },
+  { to: ROUTES.myAccount.addOffer, label: 'Dodaj ogłoszenie', special: true },
 ];
 
 export const footerLinks: MenuLink[] = [
-  { to: '/', label: 'Strona startowa' },
-  { to: '/about', label: 'O nas' },
-  { to: '/blog', label: 'Blog' },
-  { to: '/contact', label: 'Kontakt' },
+  { to: ROUTES.home, label: 'Strona startowa' },
+  { to: ROUTES.about, label: 'O nas' },
+  { to: ROUTES.blog, label: 'Blog' },
+  { to: ROUTES.contact, label: 'Kontakt' },
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: 'Twitter', to: '#', icon: FaTwitter },
-  { label: 'YouTube', to: '#', icon: FaYoutube },
-  { label: 'Instagram', to: '#', icon: FaInstagram },
+  { label: 'Twitter', to: ROUTES.socialMedia.Twitter, icon: FaTwitter },
+  { label: 'YouTube', to: ROUTES.socialMedia.YouTube, icon: FaYoutube },
+  { label: 'Instagram', to: ROUTES.socialMedia.Instagram, icon: FaInstagram },
 ];
 
 const formLinks: { [key: string]: FormLink } = {
-  signUp: { to: ROUTES.signUp, label: 'Zarejestruj się', text: 'Nie masz jeszcze konta?' },
+  signUp: { to: ROUTES.auth.signUp, label: 'Zarejestruj się', text: 'Nie masz jeszcze konta?' },
   signIn: {
-    to: ROUTES.signIn,
+    to: ROUTES.auth.signIn,
     label: 'Zaloguj się',
     text: 'Masz już konto?',
   },
   forgetPassword: {
-    to: ROUTES.forgetPassword,
+    to: ROUTES.auth.forgetPassword,
     label: 'Przypomnij hasło',
     text: 'Zapomniałeś hasła?',
   },
