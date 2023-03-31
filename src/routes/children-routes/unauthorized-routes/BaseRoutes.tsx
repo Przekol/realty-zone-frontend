@@ -2,6 +2,7 @@ import React from 'react';
 import { RouteObject } from 'react-router-dom';
 
 import { AuthLayout, OffersLayout } from '@layouts';
+import { AuthErrorPage } from '@pages/Auth/AuthErrorPage/AuthErrorPage';
 import { Home } from '@pages/Home';
 import { ROUTES } from '@routes/routes';
 
@@ -17,6 +18,7 @@ export const baseRoutes: RouteObject[] = [
     path: ROUTES.auth.base,
     element: <AuthLayout />,
     children: authRoutes,
+    errorElement: <AuthErrorPage />,
   },
   {
     path: ROUTES.offers,
