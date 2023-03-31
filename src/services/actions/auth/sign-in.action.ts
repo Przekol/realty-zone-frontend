@@ -10,11 +10,13 @@ export const SignInAction = async ({ request }: ActionFunctionArgs) => {
   const password = formData.get('password') as string;
 
   const response = await signInApi({ email, password });
-  console.log({ response });
+
   if (response.ok) {
     const user = response.data;
-    // aktualiacja stanu usera w context
 
-    return redirect(ROUTES.myAccount.base);
+    if (!user) {
+      return redirect(ROUTES.auth.signIn);
+    }
+    return user;
   }
 };
