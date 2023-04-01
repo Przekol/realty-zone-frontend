@@ -12,11 +12,12 @@ export const SignInAction = async ({ request }: ActionFunctionArgs) => {
   const response = await signInApi({ email, password });
 
   if (response.ok) {
-    const user = response.data;
+    const authenticatedStatus = response.data;
 
-    if (!user) {
+    if (!authenticatedStatus) {
       return redirect(ROUTES.auth.signIn);
     }
-    return user;
+
+    return redirect(ROUTES.myAccount.base);
   }
 };
