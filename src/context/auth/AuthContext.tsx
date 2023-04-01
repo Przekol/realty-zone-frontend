@@ -1,16 +1,12 @@
-import { UserSerializerResponse } from '@backendTypes';
 import React, { createContext, Dispatch, useReducer } from 'react';
 
-type User = UserSerializerResponse;
-
 export interface AuthState {
-  user: User | null;
+  isAuthenticated: boolean;
   isLoading: boolean;
 }
 
 export type AuthActions =
-  | { type: 'RESET_USER' }
-  | { type: 'SET_USER'; payload: User }
+  | { type: 'SET_AUTHENTICATED'; payload: boolean }
   | { type: 'SET_LOADING' }
   | { type: 'CLEAR_LOADING' };
 
@@ -22,11 +18,8 @@ export const authReducer = (state: AuthState, action: AuthActions): AuthState =>
     case 'CLEAR_LOADING': {
       return { ...state, isLoading: false };
     }
-    case 'SET_USER': {
-      return { ...state, user: action.payload };
-    }
-    case 'RESET_USER': {
-      return { ...state, user: null };
+    case 'SET_AUTHENTICATED': {
+      return { ...state, isAuthenticated: action.payload };
     }
     default:
       return state;
@@ -34,7 +27,7 @@ export const authReducer = (state: AuthState, action: AuthActions): AuthState =>
 };
 
 const initialState = {
-  user: null,
+  isAuthenticated: false,
   isLoading: false,
 };
 
