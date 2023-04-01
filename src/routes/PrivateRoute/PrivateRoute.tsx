@@ -1,15 +1,11 @@
+import { AuthenticatedStatusResponse } from '@backendTypes';
 import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useRouteLoaderData } from 'react-router-dom';
 
 import { ROUTES } from '@routes/routes';
 
-import { useAuth } from '../../context/Auth';
-
 export const PrivateRoute = () => {
-  const { user } = useAuth();
+  const authenticatedStatus = useRouteLoaderData('auth') as AuthenticatedStatusResponse;
 
-  if (!user) {
-    return <Navigate to={ROUTES.auth.signIn} />;
-  }
-  return <Outlet />;
+  return authenticatedStatus.isAuthenticated ? <Outlet /> : <Navigate to={ROUTES.auth.signIn} />;
 };
