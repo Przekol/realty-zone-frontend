@@ -1,13 +1,12 @@
 import React from 'react';
 
+import { ContentWrapper } from '@base/ContentWrapper';
 import { PrivateRoute } from '@routes/PrivateRoute';
-
-import { DefaultLayout } from '../DefaultLayout';
 
 export const AuthorizedLayout = () => {
   return (
-    <DefaultLayout>
+    <ContentWrapper>
       <PrivateRoute />
-    </DefaultLayout>
+    </ContentWrapper>
   );
 };

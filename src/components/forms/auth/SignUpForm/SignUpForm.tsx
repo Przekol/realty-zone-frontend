@@ -1,19 +1,20 @@
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import {
+  Button,
   FormControl,
+  FormErrorMessage,
   FormLabel,
   Input,
   InputGroup,
   InputRightElement,
   Stack,
-  Button,
-  FormErrorMessage,
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { Form } from 'react-router-dom';
 
+import { AuthFormButton } from '@ui/auths';
 import { useFormSubmit } from '@utils/hooks/useFormSubmit';
 
 import { defaultValues } from './default-values';
@@ -66,9 +67,7 @@ export const SignUpForm = () => {
           </InputGroup>
           <FormErrorMessage>{errors.repeatPassword?.message}</FormErrorMessage>
         </FormControl>
-        <Button type='submit' colorScheme='blue'>
-          Zarejestruj się
-        </Button>
+        <AuthFormButton>Zarejestruj się</AuthFormButton>
       </Stack>
     </Form>
   );

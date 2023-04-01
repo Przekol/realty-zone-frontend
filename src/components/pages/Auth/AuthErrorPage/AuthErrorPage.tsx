@@ -1,7 +1,7 @@
 import React from 'react';
 import { To, useRouteError } from 'react-router-dom';
 
-import { ContentWrapper } from '@base/ContentWrapper';
+import { CenterContainer } from '@base/CenterContainer';
 import { Information } from '@ui/Information';
 import { CustomError } from '@utils/exceptions';
 
@@ -16,7 +16,7 @@ export const AuthErrorPage = ({ buttonName = 'Powrót', to = -1 }: Props) => {
   const subTitle = error?.status === 404 ? 'Strona nie istnieje' : `Status błędu: ${error?.status}`;
   const description = error?.status === 404 ? 'Wygląda na to, żę strona, której szukasz, nie istnieje' : error?.message;
   return (
-    <ContentWrapper>
+    <CenterContainer>
       <Information
         title={title}
         subTitle={subTitle}
@@ -25,6 +25,6 @@ export const AuthErrorPage = ({ buttonName = 'Powrót', to = -1 }: Props) => {
         type={'error'}
         to={to}
       />
-    </ContentWrapper>
+    </CenterContainer>
   );
 };

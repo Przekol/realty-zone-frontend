@@ -1,28 +1,32 @@
-import { FormControl, FormLabel, Input, Stack } from '@chakra-ui/react';
+import { AuthenticatedStatusResponse } from '@backendTypes';
 import React from 'react';
+import { useActionData } from 'react-router-dom';
 
-import { AuthFormButton, AuthFormCard, AuthFormLinks } from '@ui/auths';
+import { CenterContainer } from '@base/CenterContainer';
+import { useAuth } from '@context/auth';
+import { SignInForm } from '@forms/auth';
+import { AuthFormCard, AuthFormLinks } from '@ui/auths';
 import { AuthFormCaption } from '@ui/captions';
 import { signInLinks } from '@utils/data/links';
 
 export const SignIn = () => {
+  const { dispatch } = useAuth();
+  const authenticatedStatus = useActionData() as AuthenticatedStatusResponse;
+
+  // useEffect(() => {
+  //   if (authenticatedStatus) {
+  //     console.log('authenticatedStatus-SignIn', authenticatedStatus);
+  //     dispatch({ type: 'SET_AUTHENTICATED', payload: authenticatedStatus.isAuthenticated });
+  //   }
+  // }, [authenticatedStatus]);
+
   return (
-    <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+    <CenterContainer maxW={'md'}>
       <AuthFormCaption title='Zaloguj się' description='i ciesz się wszystkimi naszymi funkcjonalnościami' />
       <AuthFormCard>
-        <Stack spacing={4}>
-          <FormControl id='email'>
-            <FormLabel>Email</FormLabel>
-            <Input type='email' />
-          </FormControl>
-          <FormControl id='password'>
-            <FormLabel>Hasło</FormLabel>
-            <Input type='password' />
-          </FormControl>
-          <AuthFormButton>Zaloguj się</AuthFormButton>
-          <AuthFormLinks links={signInLinks} />
-        </Stack>
+        <SignInForm />
+        <AuthFormLinks links={signInLinks} />
       </AuthFormCard>
-    </Stack>
+    </CenterContainer>
   );
 };

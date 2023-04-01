@@ -1,19 +1,19 @@
-import { Stack } from '@chakra-ui/react';
 import React from 'react';
 
-import { SignUpForm } from '@forms/auth/SignUpForm';
+import { CenterContainer } from '@base/CenterContainer';
+import { SignUpForm } from '@forms/auth';
 import { AuthFormCard, AuthFormLinks } from '@ui/auths';
 import { AuthFormCaption } from '@ui/captions';
 import { signUpLinks } from '@utils/data/links';
 
 export const SignUp = () => {
   return (
-    <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+    <CenterContainer maxW={'md'}>
       <AuthFormCaption title='Zarejestruj się' description='i ciesz się wszystkimi naszymi funkcjonalnościami' />
       <AuthFormCard>
         <SignUpForm />
         <AuthFormLinks links={signUpLinks} />
       </AuthFormCard>
-    </Stack>
+    </CenterContainer>
   );
 };

@@ -14,6 +14,7 @@ export default (config) => {
         '@backendTypes': path.resolve(__dirname, process.env.VITE_BACKEND_TYPES_PATH),
         '@utils': path.resolve(__dirname, './src/utils'),
         '@services': path.resolve(__dirname, './src/services'),
+        '@context': path.resolve(__dirname, './src/context'),
         '@layouts': path.resolve(__dirname, './src/layouts'),
         '@routes': path.resolve(__dirname, './src/routes'),
         '@assets': path.resolve(__dirname, './src/assets'),
