@@ -5,19 +5,20 @@ import { handleResponseError } from '@utils/exceptions/handle-errors/handle-resp
 
 import { ErrorMessages } from '@frontendTypes';
 
-export const handleApiErrors = async <T>(
-  request: Promise<ClientApiResponse<T>>,
-  customErrorMessages: ErrorMessages,
-  onErrorCallback?: (response: ClientApiResponse<T>) => Promise<ClientApiResponse<T>>,
-): Promise<ClientApiResponse<T>> => {
+interface HandleApiErrorsOptions<T> {
+  request: Promise<ClientApiResponse<T>>;
+  customErrorMessages: ErrorMessages;
+  onErrorCallback?: (response: ClientApiResponse<T>) => Promise<ClientApiResponse<T>>;
+}
+export const handleApiErrors = async <T>(options: HandleApiErrorsOptions<T>): Promise<ClientApiResponse<T>> => {
   try {
-    const response = await request;
+    const response = await options.request;
 
     if (!response.ok) {
-      if (onErrorCallback) {
-        return onErrorCallback(response);
+      if (options.onErrorCallback) {
+        return options.onErrorCallback(response);
       } else {
-        handleResponseError(response.status, customErrorMessages);
+        handleResponseError(response.status, options.customErrorMessages);
       }
     }
     return response;

@@ -33,7 +33,11 @@ export const ApiServer = {
       postOptions.isAuthorized,
     );
 
-    return handleApiErrors<ResponseT>(response, postOptions.customErrorMessages, postOptions.onErrorCallback);
+    return handleApiErrors<ResponseT>({
+      request: response,
+      customErrorMessages: postOptions.customErrorMessages,
+      onErrorCallback: postOptions.onErrorCallback,
+    });
   },
 
   get: async <ResponseT>(getOptions: GetOptionsApiServer<ResponseT>): Promise<ClientApiResponse<ResponseT>> => {
@@ -43,6 +47,10 @@ export const ApiServer = {
       getOptions.isAuthorized,
     );
 
-    return handleApiErrors<ResponseT>(response, getOptions.customErrorMessages, getOptions.onErrorCallback);
+    return handleApiErrors<ResponseT>({
+      request: response,
+      customErrorMessages: getOptions.customErrorMessages,
+      onErrorCallback: getOptions.onErrorCallback,
+    });
   },
 };
