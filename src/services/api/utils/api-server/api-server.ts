@@ -6,16 +6,16 @@ import { ErrorMessages } from '@frontendTypes';
 
 import { AbstractApiClient } from '../abstract-api-client';
 
-const apiSever = new AbstractApiClient(import.meta.env.VITE_BACKEND_API);
+const apiServer = new AbstractApiClient(import.meta.env.VITE_BACKEND_API);
 
 export const ApiServer = {
   post: async <RequestBody, ResponseT>(
     endpoint: string,
     data: RequestBody,
     customErrorMessages: ErrorMessages,
-    onErrorCallback?: (response: ClientApiResponse<ResponseT>) => void,
+    onErrorCallback?: (response: ClientApiResponse<ResponseT>) => Promise<ClientApiResponse<ResponseT>>,
   ): Promise<ClientApiResponse<ResponseT>> => {
-    const response = apiSever.post<RequestBody, ClientApiResponse<ResponseT>>(endpoint, data, {
+    const response = apiServer.post<RequestBody, ClientApiResponse<ResponseT>>(endpoint, data, {
       credentials: 'include',
     });
 
@@ -25,9 +25,9 @@ export const ApiServer = {
   get: async <ResponseT>(
     endpoint: string,
     customErrorMessages: ErrorMessages,
-    onErrorCallback?: (response: ClientApiResponse<ResponseT>) => void,
+    onErrorCallback?: (response: ClientApiResponse<ResponseT>) => Promise<ClientApiResponse<ResponseT>>,
   ): Promise<ClientApiResponse<ResponseT>> => {
-    const response = apiSever.get<ClientApiResponse<ResponseT>>(endpoint, {
+    const response = apiServer.get<ClientApiResponse<ResponseT>>(endpoint, {
       credentials: 'include',
     });
 
