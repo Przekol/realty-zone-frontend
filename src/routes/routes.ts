@@ -14,6 +14,7 @@ const auth = {
   base: BASE_URLS.auth,
   signIn: `${BASE_URLS.auth}/sign-in`,
   signUp: `${BASE_URLS.auth}/sign-up`,
+  logout: `${BASE_URLS.auth}/logout`,
   forgetPassword: `${BASE_URLS.auth}/forget-password`,
   activateAccount: `${BASE_URLS.auth}/activate-account`,
   successful,

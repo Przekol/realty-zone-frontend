@@ -8,7 +8,8 @@ export interface AuthState {
 export type AuthActions =
   | { type: 'SET_AUTHENTICATED'; payload: boolean }
   | { type: 'SET_LOADING' }
-  | { type: 'CLEAR_LOADING' };
+  | { type: 'CLEAR_LOADING' }
+  | { type: 'LOGOUT' };
 
 export const authReducer = (state: AuthState, action: AuthActions): AuthState => {
   switch (action.type) {
@@ -20,6 +21,9 @@ export const authReducer = (state: AuthState, action: AuthActions): AuthState =>
     }
     case 'SET_AUTHENTICATED': {
       return { ...state, isAuthenticated: action.payload };
+    }
+    case 'LOGOUT': {
+      return { ...state, isAuthenticated: false };
     }
     default:
       return state;
