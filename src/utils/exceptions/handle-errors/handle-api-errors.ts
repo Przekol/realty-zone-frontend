@@ -8,14 +8,14 @@ import { ErrorMessages } from '@frontendTypes';
 export const handleApiErrors = async <T>(
   request: Promise<ClientApiResponse<T>>,
   customErrorMessages: ErrorMessages,
-  onErrorCallback?: (response: ClientApiResponse<T>) => void,
+  onErrorCallback?: (response: ClientApiResponse<T>) => Promise<ClientApiResponse<T>>,
 ): Promise<ClientApiResponse<T>> => {
   try {
     const response = await request;
 
     if (!response.ok) {
       if (onErrorCallback) {
-        onErrorCallback(response);
+        return onErrorCallback(response);
       } else {
         handleResponseError(response.status, customErrorMessages);
       }

@@ -7,6 +7,7 @@ import { FormLink, MenuLink, SocialLink } from '@frontendTypes';
 export const navigationLinks: MenuLink[] = [
   { to: ROUTES.offers, label: 'Ogłoszenia' },
   { to: ROUTES.myAccount.base, label: 'Moje Konto' },
+  { to: ROUTES.auth.logout, label: 'Wyloguj' },
   { to: ROUTES.myAccount.addOffer, label: 'Dodaj ogłoszenie', special: true },
 ];
 
