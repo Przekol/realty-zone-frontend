@@ -9,5 +9,9 @@ export const getAuthenticationStatusApi = (
     response: ClientApiResponse<AuthenticatedStatusResponse>,
   ) => Promise<ClientApiResponse<AuthenticatedStatusResponse>>,
 ) => {
-  return ApiServer.get<AuthenticatedStatusResponse>(ENDPOINTS.authenticationStatus, errorMessages, onErrorCallback);
+  return ApiServer.get<AuthenticatedStatusResponse>({
+    endpoint: ENDPOINTS.authenticationStatus,
+    customErrorMessages: errorMessages,
+    onErrorCallback,
+  });
 };
