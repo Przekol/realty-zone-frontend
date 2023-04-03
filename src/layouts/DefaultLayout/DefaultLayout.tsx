@@ -3,9 +3,6 @@ import { Flex } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { Outlet, useRouteLoaderData } from 'react-router-dom';
 
-import { MainFooter } from '@templates/footers';
-import { MainNavigation } from '@templates/navigations';
-
 interface Props {
   children?: React.ReactNode;
 }
@@ -27,10 +24,8 @@ export const DefaultLayout = ({ children }: Props) => {
 
   return (
     <Flex direction='column' minHeight='100vh'>
-      <MainNavigation isLogged={isLogged} />
       {children}
-      <Outlet />
-      <MainFooter />
+      <Outlet context={{ isLogged }} />
     </Flex>
   );
 };
