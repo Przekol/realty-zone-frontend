@@ -1,4 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-export const UnauthorizedLayout = () => <Outlet />;
+import { MainLayout } from '@layouts';
+
+export const UnauthorizedLayout = () => {
+  return (
+    <>
+      <MainLayout>
+        <Outlet />
+      </MainLayout>
+    </>
+  );
+};
