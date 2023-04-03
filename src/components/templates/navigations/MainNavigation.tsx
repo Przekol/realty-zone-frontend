@@ -1,13 +1,28 @@
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { Box, Flex, IconButton, useColorModeValue, useDisclosure } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Logo } from '@ui/Logo';
 import { MainMenu, MobileMenu } from '@ui/menu';
 import { navigationLinks } from '@utils/data/links';
 
-export const MainNavigation = () => {
+import { MenuLink } from '@frontendTypes';
+
+interface Props {
+  isLogged: boolean;
+}
+export const MainNavigation = ({ isLogged }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [links, setLinks] = useState<MenuLink[]>([...navigationLinks.commonLinks, ...navigationLinks.loggedOutLinks]);
+  const getNavigationLinks = (isLogged: boolean) => {
+    return isLogged
+      ? [...navigationLinks.commonLinks, ...navigationLinks.loggedInLinks]
+      : [...navigationLinks.commonLinks, ...navigationLinks.loggedOutLinks];
+  };
+
+  useEffect(() => {
+    setLinks(getNavigationLinks(isLogged));
+  }, [isLogged]);
 
   return (
     <>
@@ -21,10 +36,10 @@ export const MainNavigation = () => {
             onClick={isOpen ? onClose : onOpen}
           />
           <Logo />
-          <MainMenu links={navigationLinks} />
+          <MainMenu links={links} />
         </Flex>
 
-        {isOpen ? <MobileMenu links={navigationLinks} /> : null}
+        {isOpen ? <MobileMenu links={links} /> : null}
       </Box>
     </>
   );

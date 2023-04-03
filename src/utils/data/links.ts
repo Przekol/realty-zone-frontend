@@ -4,12 +4,22 @@ import { ROUTES } from '@routes/routes';
 
 import { FormLink, MenuLink, SocialLink } from '@frontendTypes';
 
-export const navigationLinks: MenuLink[] = [
-  { to: ROUTES.offers, label: 'Ogłoszenia' },
-  { to: ROUTES.myAccount.base, label: 'Moje Konto' },
-  { to: ROUTES.auth.logout, label: 'Wyloguj' },
-  { to: ROUTES.myAccount.addOffer, label: 'Dodaj ogłoszenie', special: true },
-];
+interface NavigationLinks {
+  commonLinks: MenuLink[];
+  loggedOutLinks: MenuLink[];
+  loggedInLinks: MenuLink[];
+}
+export const navigationLinks: NavigationLinks = {
+  commonLinks: [
+    { to: ROUTES.offers, label: 'Ogłoszenia' },
+    { to: ROUTES.myAccount.base, label: 'Moje Konto' },
+  ],
+  loggedOutLinks: [],
+  loggedInLinks: [
+    { to: ROUTES.auth.logout, label: 'Wyloguj' },
+    { to: ROUTES.myAccount.addOffer, label: 'Dodaj ogłoszenie', special: true },
+  ],
+};
 
 export const footerLinks: MenuLink[] = [
   { to: ROUTES.home, label: 'Strona startowa' },

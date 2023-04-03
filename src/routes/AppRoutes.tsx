@@ -5,14 +5,15 @@ import { AuthorizedLayout, DefaultLayout, UnauthorizedLayout } from '@layouts';
 import { ErrorPage } from '@pages/Error';
 import { baseRoutes, myAccountRoutes } from '@routes/children-routes';
 import { ROUTES } from '@routes/routes';
-import { AuthenticationStatusLoader } from '@services/loaders';
+import { AuthenticationStatusLoader, LoggedLoader } from '@services/loaders';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <DefaultLayout />,
     errorElement: <ErrorPage />,
-
+    id: 'default',
+    loader: LoggedLoader,
     children: [
       {
         path: ROUTES.home,

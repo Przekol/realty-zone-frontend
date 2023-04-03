@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useSubmit } from 'react-router-dom';
 
 import { ROUTES } from '@routes/routes';
@@ -9,6 +9,7 @@ export const Logout = () => {
 
   useEffect(() => {
     submit(null, { method: 'post' });
+    localStorage.removeItem('isLogged');
     navigate(ROUTES.home);
   }, []);
 
