@@ -4,7 +4,7 @@ import { ENDPOINTS } from '@services/api/methods/endpoints';
 import { ApiServer } from '@services/api/utils/api-server';
 import { signInErrorMessages } from '@utils/exceptions/error-messages/auth';
 
-export const signInApi = async (credentials: LoginUserRequest) => {
+export const signInApi = (credentials: LoginUserRequest) => {
   return ApiServer.post<LoginUserRequest, AuthenticatedStatusResponse>({
     endpoint: ENDPOINTS.signIn,
     data: credentials,
