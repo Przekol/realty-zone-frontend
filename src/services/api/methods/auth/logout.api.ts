@@ -9,5 +9,10 @@ export const logoutApi = async (
     response: ClientApiResponse<AuthenticatedStatusResponse>,
   ) => Promise<ClientApiResponse<AuthenticatedStatusResponse>>,
 ): Promise<ClientApiResponse<AuthenticatedStatusResponse>> => {
-  return ApiServer.post<null, AuthenticatedStatusResponse>(ENDPOINTS.logout, null, errorMessages, onErrorCallback);
+  return ApiServer.post<null, AuthenticatedStatusResponse>({
+    endpoint: ENDPOINTS.logout,
+    data: null,
+    customErrorMessages: errorMessages,
+    onErrorCallback,
+  });
 };

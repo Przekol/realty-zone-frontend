@@ -6,5 +6,9 @@ import { signUpErrorMessages } from '@utils/exceptions/error-messages/auth';
 import { ENDPOINTS } from '../endpoints';
 
 export const signUpApi = (credentials: RegisterUserRequest) => {
-  return ApiServer.post<RegisterUserRequest, GetOneUserResponse>(ENDPOINTS.signUp, credentials, signUpErrorMessages);
+  return ApiServer.post<RegisterUserRequest, GetOneUserResponse>({
+    endpoint: ENDPOINTS.signUp,
+    data: credentials,
+    customErrorMessages: signUpErrorMessages,
+  });
 };

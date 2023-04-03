@@ -3,28 +3,30 @@ type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
 export class AbstractApiClient {
   constructor(private readonly baseUrl: string) {}
 
-  async get<ResponseBody>(endpoint: string, options?: RequestInit): Promise<ResponseBody> {
-    return this.request<void, ResponseBody>(endpoint, 'GET', options);
+  async get<ResponseBody>(endpoint: string, options?: RequestInit, isAuthorized?: boolean): Promise<ResponseBody> {
+    return this.request<void, ResponseBody>(endpoint, 'GET', options, undefined, isAuthorized);
   }
 
   async post<RequestBody, ResponseBody>(
     endpoint: string,
     body: RequestBody,
     options?: RequestInit,
+    isAuthorized?: boolean,
   ): Promise<ResponseBody> {
-    return this.request<RequestBody, ResponseBody>(endpoint, 'POST', options, body);
+    return this.request<RequestBody, ResponseBody>(endpoint, 'POST', options, body, isAuthorized);
   }
 
   async put<RequestBody, ResponseBody>(
     endpoint: string,
     body: RequestBody,
     options?: RequestInit,
+    isAuthorized?: boolean,
   ): Promise<ResponseBody> {
-    return this.request<RequestBody, ResponseBody>(endpoint, 'PUT', options, body);
+    return this.request<RequestBody, ResponseBody>(endpoint, 'PUT', options, body, isAuthorized);
   }
 
-  async delete<ResponseBody>(endpoint: string, options?: RequestInit): Promise<ResponseBody> {
-    return this.request<void, ResponseBody>(endpoint, 'DELETE', options);
+  async delete<ResponseBody>(endpoint: string, options?: RequestInit, isAuthorized?: boolean): Promise<ResponseBody> {
+    return this.request<void, ResponseBody>(endpoint, 'DELETE', options, undefined, isAuthorized);
   }
 
   private getUrl(endpoint: string): string {
@@ -36,7 +38,14 @@ export class AbstractApiClient {
     method: Method,
     options: RequestInit = {},
     body?: RequestBodyT,
+    isAuthorized = true,
   ): Promise<ResponseBodyT> {
+    if (isAuthorized) {
+      options = {
+        ...options,
+        credentials: 'include',
+      };
+    }
     const fetchOptions: RequestInit = {
       method,
       ...options,
