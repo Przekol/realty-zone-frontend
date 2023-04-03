@@ -1,22 +1,32 @@
 import { ClientApiResponse } from '@backendTypes';
 
+import { refreshTokensApi } from '@services/api/methods/auth';
 import { CustomError, errorMessages } from '@utils/exceptions';
-import { handleResponseError } from '@utils/exceptions/handle-errors/handle-response-error';
 
 import { ErrorMessages } from '@frontendTypes';
 
+import { handleResponseError } from './handle-response-error';
+
 interface HandleApiErrorsOptions<T> {
-  request: Promise<ClientApiResponse<T>>;
+  response: Promise<ClientApiResponse<T>>;
   customErrorMessages: ErrorMessages;
   onErrorCallback?: (response: ClientApiResponse<T>) => Promise<ClientApiResponse<T>>;
+  shouldRefreshTokens?: boolean;
+  onRefreshTokensCallback?: () => Promise<ClientApiResponse<T>>;
 }
+
 export const handleApiErrors = async <T>(options: HandleApiErrorsOptions<T>): Promise<ClientApiResponse<T>> => {
   try {
-    const response = await options.request;
-
+    options = { ...options, shouldRefreshTokens: options.shouldRefreshTokens && true };
+    const response = await options.response;
+    const onErrorCallback = options.onErrorCallback;
     if (!response.ok) {
-      if (options.onErrorCallback) {
-        return options.onErrorCallback(response);
+      if (response.status === 401 && response.error?.code === 'TOKEN_EXPIRED') {
+        await refreshTokensApi();
+        return options.onRefreshTokensCallback ? await options.onRefreshTokensCallback() : response;
+      }
+      if (onErrorCallback) {
+        return onErrorCallback(response);
       } else {
         handleResponseError(response.status, options.customErrorMessages);
       }
