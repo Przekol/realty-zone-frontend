@@ -8,3 +8,4 @@ export * from './menu';
 export * from './NavigationLinks';
 export * from './OurServices';
 export * from './SocialButtons';
+export * from './SidebarContent';
