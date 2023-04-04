@@ -38,7 +38,7 @@ export const MainNavigation = () => {
           <Box display={{ base: 'flex' }}>
             <Logo />
           </Box>
-          <MainMenu links={links} />
+          <MainMenu isLogged={isLogged} links={links} />
         </Flex>
 
         {isOpen ? <MobileMenu links={links} /> : null}

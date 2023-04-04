@@ -1,6 +1,6 @@
-import { AddIcon } from '@chakra-ui/icons';
 import { Button } from '@chakra-ui/react';
 import * as React from 'react';
+import { MdOutlineLogin } from 'react-icons/all';
 
 import { MenuLink } from '@frontendTypes';
 
@@ -17,7 +17,14 @@ export const NavigationLinks = ({ links, isSpecial }: Props) => (
       .map((link) => (
         <NavigationLink key={link.to} to={link.to}>
           {isSpecial ? (
-            <Button variant={'solid'} rounded={'full'} colorScheme={'blue'} size={'sm'} mr={4} leftIcon={<AddIcon />}>
+            <Button
+              variant={'solid'}
+              rounded={'full'}
+              colorScheme={'blue'}
+              size={'sm'}
+              mr={4}
+              rightIcon={<MdOutlineLogin />}
+            >
               {link.label}
             </Button>
           ) : (
