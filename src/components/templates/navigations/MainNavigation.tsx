@@ -5,13 +5,12 @@ import React, { useEffect, useState } from 'react';
 import { Logo } from '@ui/Logo';
 import { MainMenu, MobileMenu } from '@ui/menu';
 import { navigationLinks } from '@utils/data/links';
-import { useLogged } from '@utils/hooks';
+import { useAuthenticationStatus } from '@utils/hooks';
 
 import { MenuLink } from '@frontendTypes';
 
 export const MainNavigation = () => {
-  const { isLogged } = useLogged();
-
+  const { isLogged } = useAuthenticationStatus();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [links, setLinks] = useState<MenuLink[]>([...navigationLinks.commonLinks, ...navigationLinks.loggedOutLinks]);
   const getNavigationLinks = (isLogged: boolean) => {
