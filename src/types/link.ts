@@ -19,8 +19,6 @@ export interface FormLink {
 }
 
 export interface UserMenuItemLink {
-  label?: string;
-  to?: string;
-  isCustomLink?: boolean;
-  isDivider?: boolean;
+  label: string;
+  to: string;
 }

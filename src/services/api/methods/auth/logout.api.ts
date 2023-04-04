@@ -5,7 +5,7 @@ import { handleUnauthorizedResponse } from '@services/api/methods/helpers';
 import { ApiServer } from '@services/api/utils/api-server';
 import { errorMessages } from '@utils/exceptions';
 
-export const logoutApi = async (): Promise<ClientApiResponse<AuthenticatedStatusResponse>> => {
+export const logoutApi = (): Promise<ClientApiResponse<AuthenticatedStatusResponse>> => {
   return ApiServer.post<null, AuthenticatedStatusResponse>({
     endpoint: ENDPOINTS.logout,
     data: null,

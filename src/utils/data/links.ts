@@ -69,9 +69,7 @@ export const sideBarLinks: IconLink[] = [
 ];
 
 export const userMenuItemLinks: UserMenuItemLink[] = [
-  { label: 'Moje konto', to: ROUTES.myAccount.base, isCustomLink: true },
-  { label: 'Dodaj ofertę', to: ROUTES.myAccount.addOffer, isCustomLink: true },
-  { label: 'Ustawienia', to: ROUTES.myAccount.settings, isCustomLink: true },
-  { isDivider: true },
-  { label: 'Wyloguj', to: ROUTES.auth.logout, isCustomLink: true },
+  { label: 'Moje konto', to: ROUTES.myAccount.base },
+  { label: 'Dodaj ofertę', to: ROUTES.myAccount.addOffer },
+  { label: 'Ustawienia', to: ROUTES.myAccount.settings },
 ];

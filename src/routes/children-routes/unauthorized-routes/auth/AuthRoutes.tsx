@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, Outlet, RouteObject } from 'react-router-dom';
 
-import { AuthErrorPage, ForgetPassword, Logout, SignIn, SignUp } from '@pages/Auth';
+import { AuthErrorPage, ForgetPassword, SignIn, SignUp } from '@pages/Auth';
 import { StatusMessage } from '@pages/StatusMessage';
 import { ROUTES } from '@routes/routes';
 import { LogoutAction, SignInAction, SignUpAction } from '@services/actions';
@@ -39,7 +39,7 @@ export const authRoutes: RouteObject[] = [
     element: <Navigate to={ROUTES.auth.successful.activation} />,
     errorElement: <AuthErrorPage to={ROUTES.home} buttonName={'Powrót na stronę główną'} />,
   },
-  { path: ROUTES.auth.logout, action: LogoutAction, element: <Logout /> },
+  { path: ROUTES.auth.logout, action: LogoutAction, element: <Navigate to={ROUTES.home} /> },
   {
     path: ROUTES.auth.successful.base,
     element: <Outlet />,
