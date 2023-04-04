@@ -23,6 +23,8 @@ const auth = {
 const myAccount = {
   base: BASE_URLS.myAccount,
   addOffer: `${BASE_URLS.myAccount}/add-offer`,
+  myOffers: `${BASE_URLS.myAccount}/my-offer`,
+  settings: `${BASE_URLS.myAccount}/settings`,
 };
 
 const socialMedia = {
