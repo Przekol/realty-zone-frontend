@@ -1,8 +1,9 @@
+import { AiOutlineHome, BsHouseAdd, CgProfile, FiSettings, MdOutlineRealEstateAgent } from 'react-icons/all';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 import { ROUTES } from '@routes/routes';
 
-import { FormLink, MenuLink, SocialLink } from '@frontendTypes';
+import { FormLink, IconLink, MenuLink, UserMenuItemLink } from '@frontendTypes';
 
 interface NavigationLinks {
   commonLinks: MenuLink[];
@@ -10,15 +11,9 @@ interface NavigationLinks {
   loggedInLinks: MenuLink[];
 }
 export const navigationLinks: NavigationLinks = {
-  commonLinks: [
-    { to: ROUTES.offers, label: 'Ogłoszenia' },
-    { to: ROUTES.myAccount.base, label: 'Moje Konto' },
-  ],
-  loggedOutLinks: [],
-  loggedInLinks: [
-    { to: ROUTES.auth.logout, label: 'Wyloguj' },
-    { to: ROUTES.myAccount.addOffer, label: 'Dodaj ogłoszenie', special: true },
-  ],
+  commonLinks: [{ to: ROUTES.offers, label: 'Ogłoszenia' }],
+  loggedOutLinks: [{ to: ROUTES.auth.signIn, label: 'Zaloguj się', special: true }],
+  loggedInLinks: [],
 };
 
 export const footerLinks: MenuLink[] = [
@@ -28,7 +23,7 @@ export const footerLinks: MenuLink[] = [
   { to: ROUTES.contact, label: 'Kontakt' },
 ];
 
-export const socialLinks: SocialLink[] = [
+export const socialLinks: IconLink[] = [
   { label: 'Twitter', to: ROUTES.socialMedia.Twitter, icon: FaTwitter },
   { label: 'YouTube', to: ROUTES.socialMedia.YouTube, icon: FaYoutube },
   { label: 'Instagram', to: ROUTES.socialMedia.Instagram, icon: FaInstagram },
@@ -52,3 +47,31 @@ export const signUpLinks = [formLinks.signIn];
 export const signInLinks = [formLinks.signUp, formLinks.forgetPassword];
 
 export const forgetPasswordLinks = [formLinks.signUp];
+
+export const sideBarLinks: IconLink[] = [
+  { to: ROUTES.myAccount.base, label: 'Profil', icon: CgProfile },
+  {
+    to: ROUTES.myAccount.addOffer,
+    label: 'Dodaj ogłoszenie',
+    icon: BsHouseAdd,
+  },
+  {
+    to: ROUTES.myAccount.myOffers,
+    label: 'Moje ogłoszenia',
+    icon: MdOutlineRealEstateAgent,
+  },
+  {
+    to: ROUTES.myAccount.settings,
+    label: 'Ustawienia',
+    icon: FiSettings,
+  },
+  { to: ROUTES.home, label: 'Powrót do strony głównej', icon: AiOutlineHome },
+];
+
+export const userMenuItemLinks: UserMenuItemLink[] = [
+  { label: 'Moje konto', to: ROUTES.myAccount.base, isCustomLink: true },
+  { label: 'Dodaj ofertę', to: ROUTES.myAccount.addOffer, isCustomLink: true },
+  { label: 'Ustawienia', to: ROUTES.myAccount.settings, isCustomLink: true },
+  { isDivider: true },
+  { label: 'Wyloguj', to: ROUTES.auth.logout, isCustomLink: true },
+];
