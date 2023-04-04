@@ -4,18 +4,15 @@ import React from 'react';
 import { SidebarContent } from '@ui/SidebarContent';
 import { sideBarLinks } from '@utils/data/links';
 
-import { UserDetails } from '@frontendTypes';
-
 import { SidebarMobileNavigation } from './SidebarMobileNavigation';
 
 interface Props {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
-  userDetails?: UserDetails;
 }
 
-export const AccountSidebar = ({ isOpen, onOpen, onClose, userDetails }: Props) => {
+export const AccountSidebar = ({ isOpen, onOpen, onClose }: Props) => {
   return (
     <>
       <SidebarContent links={sideBarLinks} onClose={() => onClose} display={{ base: 'none', md: 'block' }} />
@@ -32,7 +29,7 @@ export const AccountSidebar = ({ isOpen, onOpen, onClose, userDetails }: Props) 
           <SidebarContent links={sideBarLinks} onClose={onClose} />
         </DrawerContent>
       </Drawer>
-      <SidebarMobileNavigation userDetails={userDetails} onOpen={onOpen} />
+      <SidebarMobileNavigation onOpen={onOpen} />
     </>
   );
 };

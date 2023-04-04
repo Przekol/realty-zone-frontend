@@ -1,3 +1,3 @@
-import { AvatarDetails, MenuButtonAvatar } from './components';
+import { TopBarUserMenu } from './TopBarUserMenu';
 
-export { AvatarDetails, MenuButtonAvatar };
+export { TopBarUserMenu };
