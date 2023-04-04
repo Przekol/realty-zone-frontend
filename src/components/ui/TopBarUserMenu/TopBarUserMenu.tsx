@@ -1,17 +1,36 @@
+import { UserDetailsResponse } from '@backendTypes';
 import { Flex, HStack, Menu } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
+import { UserDetailsLoader } from '@services/loaders';
 import { userMenuItemLinks } from '@utils/data/links';
-
-import { UserDetails } from '@frontendTypes';
+import { useAuthenticationStatus } from '@utils/hooks';
 
 import { MenuButtonAvatar, UserMenuList } from './components';
 
-interface Props {
-  userDetails?: UserDetails;
-}
+export const TopBarUserMenu = () => {
+  const { isLogged } = useAuthenticationStatus();
+  const [userDetails, setUserDetails] = useState<UserDetailsResponse>({
+    email: '',
+    firstName: '',
+    lastName: '',
+    src: '',
+    status: 0,
+    roles: ['User'],
+  });
+  useEffect(() => {
+    if (isLogged) {
+      loadUserDetails();
+    }
+  }, [isLogged]);
 
-export const TopBarUserMenu = ({ userDetails }: Props) => {
+  const loadUserDetails = async () => {
+    const data = await UserDetailsLoader();
+    if (data) {
+      setUserDetails((prevState) => ({ ...prevState, ...data }));
+    }
+  };
+
   return (
     <HStack spacing={{ base: '0', md: '6' }}>
       <Flex alignItems={'center'}>
