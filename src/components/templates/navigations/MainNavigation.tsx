@@ -35,7 +35,9 @@ export const MainNavigation = () => {
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <Logo />
+          <Box display={{ base: 'flex' }}>
+            <Logo />
+          </Box>
           <MainMenu links={links} />
         </Flex>
 
