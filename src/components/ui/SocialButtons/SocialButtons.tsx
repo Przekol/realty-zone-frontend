@@ -1,12 +1,12 @@
 import { Stack } from '@chakra-ui/react';
 import React from 'react';
 
-import { SocialLink } from '@frontendTypes';
+import { IconLink } from '@frontendTypes';
 
 import { SocialButton } from './components';
 
 interface Props {
-  links: SocialLink[];
+  links: IconLink[];
 }
 
 export const SocialButtons = ({ links }: Props) => {

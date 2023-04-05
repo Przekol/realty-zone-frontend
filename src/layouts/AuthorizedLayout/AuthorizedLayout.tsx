@@ -1,20 +1,22 @@
 import { AuthenticatedStatusResponse } from '@backendTypes';
 import React, { useEffect } from 'react';
-import { useRouteLoaderData } from 'react-router-dom';
+import { Navigate, Outlet, useRouteLoaderData } from 'react-router-dom';
 
-import { ContentWrapper } from '@base/ContentWrapper';
-import { PrivateRoute } from '@routes/PrivateRoute';
+import { ROUTES } from '@routes/routes';
+import { useAuthenticationStatus } from '@utils/hooks';
 
 export const AuthorizedLayout = () => {
+  const { setIsLogged, isLogged, loadAuthenticationStatus } = useAuthenticationStatus();
   const authenticatedStatus = useRouteLoaderData('auth') as AuthenticatedStatusResponse;
   useEffect(() => {
     if (authenticatedStatus) {
-      localStorage.setItem('isLogged', JSON.stringify(authenticatedStatus.isAuthenticated));
+      setIsLogged(authenticatedStatus.isAuthenticated);
     }
   }, [authenticatedStatus]);
-  return (
-    <ContentWrapper>
-      <PrivateRoute />
-    </ContentWrapper>
+
+  return authenticatedStatus.isAuthenticated ? (
+    <Outlet context={{ setIsLogged, isLogged, loadAuthenticationStatus }} />
+  ) : (
+    <Navigate to={ROUTES.auth.signIn} />
   );
 };

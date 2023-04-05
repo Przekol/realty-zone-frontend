@@ -5,4 +5,5 @@ export const ENDPOINTS = {
   refreshTokens: '/authentication/refresh',
   authenticationStatus: '/authentication/status',
   emailConfirmationConfirm: '/email-confirmation/confirm',
+  userDetails: '/users/me',
 };

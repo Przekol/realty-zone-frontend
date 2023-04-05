@@ -1,4 +1,4 @@
-import React from 'react';
+import { IconType } from 'react-icons';
 
 export interface MenuLink {
   to: string;
@@ -6,14 +6,19 @@ export interface MenuLink {
   special?: boolean;
 }
 
-export interface SocialLink {
+export interface IconLink {
   to: string;
   label: string;
-  icon: React.ElementType;
+  icon: IconType;
 }
 
 export interface FormLink {
   to: string;
   label: string;
   text: string;
+}
+
+export interface UserMenuItemLink {
+  label: string;
+  to: string;
 }
