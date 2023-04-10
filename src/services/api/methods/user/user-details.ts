@@ -1,4 +1,4 @@
-import { UserDetailsResponse } from '@backendTypes';
+import { UserProfileResponse } from '@backendTypes';
 
 import { ApiServer } from '@services/api/utils/api-server';
 import { errorMessages } from '@utils/exceptions';
@@ -6,7 +6,7 @@ import { errorMessages } from '@utils/exceptions';
 import { ENDPOINTS } from '../endpoints';
 
 export const getUserDetailsApi = () => {
-  return ApiServer.get<UserDetailsResponse>({
+  return ApiServer.get<UserProfileResponse>({
     endpoint: ENDPOINTS.userDetails,
     customErrorMessages: errorMessages,
   });
