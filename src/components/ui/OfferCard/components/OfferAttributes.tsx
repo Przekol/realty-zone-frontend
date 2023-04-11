@@ -1,4 +1,4 @@
-import { Stack, StackDivider } from '@chakra-ui/react';
+import { SimpleGrid, Stack, StackDivider } from '@chakra-ui/react';
 import React from 'react';
 
 import { Attributes } from '@frontendTypes';
@@ -11,9 +11,11 @@ interface Props {
 export const OfferAttributes = ({ attributes }: Props) => {
   return (
     <Stack spacing={4} divider={<StackDivider borderColor={'gray.300'} />}>
-      {attributes.map((property, index) => (
-        <OfferAttribute key={index} label={property.label} value={property.value} icon={property.icon} />
-      ))}
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+        {attributes.map((property, index) => (
+          <OfferAttribute key={index} label={property.label} value={property.value} icon={property.icon} />
+        ))}
+      </SimpleGrid>
     </Stack>
   );
 };

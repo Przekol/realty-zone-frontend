@@ -1,3 +1,5 @@
+import { OfferCardDetails } from '@ui/OfferCard/OfferCardDetails';
+
 import { OfferCard } from './OfferCard';
 
-export { OfferCard };
+export { OfferCard, OfferCardDetails };

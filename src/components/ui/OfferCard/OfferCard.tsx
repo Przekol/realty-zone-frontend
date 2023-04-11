@@ -5,6 +5,7 @@ import { IoLayersSharp } from 'react-icons/all';
 import { IoBedSharp, IoCalendar, IoHome } from 'react-icons/io5';
 
 import {
+  OfferAddress,
   OfferAttributes,
   OfferContainer,
   OfferDescription,
@@ -17,7 +18,7 @@ interface Props {
   offer: OneOfferResponse;
 }
 export function OfferCard({ offer }: Props) {
-  const dataPropertiesCard = [
+  const attributesDetails = [
     {
       label: 'Powierzchnia',
       value: offer.area,
@@ -30,7 +31,7 @@ export function OfferCard({ offer }: Props) {
     },
     {
       label: 'Piętro',
-      value: offer.floor + '/' + offer.buildingFloors,
+      value: `${offer.floor}/${offer.buildingFloors}`,
       icon: <IoLayersSharp />,
     },
     {
@@ -44,9 +45,10 @@ export function OfferCard({ offer }: Props) {
     <OfferContainer>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
         <Stack spacing={4}>
+          <OfferAddress address={offer.address} />
           <OfferHeader transaction={offer.transaction} price={offer.price} />
           <OfferDescription description={offer.description} title={offer.title} maxLength={100} />
-          <OfferAttributes attributes={dataPropertiesCard} />
+          <OfferAttributes attributes={attributesDetails} />
           <OfferDetailsButton title={offer.title} offerNumber={offer.offerNumber} />
         </Stack>
         <OfferImage src={offer.photos[0]} />
