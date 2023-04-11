@@ -38,6 +38,7 @@ export const ROUTES = {
   auth,
   contact: '/contact',
   offers: '/offers',
+  offerDetails: '/offers/:offerNumber/:offerSlug?',
   myAccount,
   blog: '/blog',
   about: '/about',

@@ -9,3 +9,4 @@ export * from './NavigationLinks';
 export * from './OurServices';
 export * from './SocialButtons';
 export * from './SidebarContent';
+export * from './OfferCard';
