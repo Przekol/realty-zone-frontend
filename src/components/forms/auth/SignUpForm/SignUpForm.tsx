@@ -14,7 +14,7 @@ import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Form } from 'react-router-dom';
 
-import { AuthFormButton } from '@ui/auths';
+import { FormButton } from '@ui/auths';
 import { useFormSubmit } from '@utils/hooks/useFormSubmit';
 
 import { defaultValues } from './default-values';
@@ -67,7 +67,7 @@ export const SignUpForm = () => {
           </InputGroup>
           <FormErrorMessage>{errors.repeatPassword?.message}</FormErrorMessage>
         </FormControl>
-        <AuthFormButton>Zarejestruj się</AuthFormButton>
+        <FormButton>Zarejestruj się</FormButton>
       </Stack>
     </Form>
   );

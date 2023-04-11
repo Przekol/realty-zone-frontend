@@ -1,9 +1,10 @@
 import { Button, Stack } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
+
 interface Props {
   children: ReactNode;
 }
-export const AuthFormButton = ({ children }: Props) => (
+export const FormButton = ({ children }: Props) => (
   <Stack spacing={10} pt={2}>
     <Button
       type='submit'

@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { Form } from 'react-router-dom';
 
 import { signInSchema } from '@forms/auth/SignInForm/sign-in.schema';
-import { AuthFormButton } from '@ui/auths';
+import { FormButton } from '@ui/auths';
 import { useFormSubmit } from '@utils/hooks';
 
 import { defaultValues } from './default-values';
@@ -35,7 +35,7 @@ export const SignInForm = () => {
           <Input {...register('password')} type='password' />
           <FormErrorMessage>{errors.password?.message}</FormErrorMessage>
         </FormControl>
-        <AuthFormButton>Zaloguj się</AuthFormButton>
+        <FormButton>Zaloguj się</FormButton>
       </Stack>
     </Form>
   );
