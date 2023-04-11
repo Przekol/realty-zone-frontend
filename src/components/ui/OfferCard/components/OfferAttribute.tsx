@@ -6,7 +6,7 @@ interface Props {
   value: string | number;
   icon: ReactElement;
 }
-export const PropertyDetailItem = ({ label, value, icon }: Props) => {
+export const OfferAttribute = ({ label, value, icon }: Props) => {
   return (
     <Stack direction={'row'} align={'center'}>
       <Flex w={4} h={4} align={'center'} justify={'center'} rounded={'full'}>

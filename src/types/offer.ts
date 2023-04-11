@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-export interface PropertyDetail {
+export interface Attributes {
   label: string;
   value: string | number;
   icon: ReactElement;
