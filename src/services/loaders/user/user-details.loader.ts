@@ -1,8 +1,8 @@
-import { UserDetailsResponse } from '@backendTypes';
+import { UserProfileResponse } from '@backendTypes';
 
 import { getUserDetailsApi } from '@services/api/methods/user';
 
-export const UserDetailsLoader = async (): Promise<UserDetailsResponse | null> => {
+export const UserDetailsLoader = async (): Promise<UserProfileResponse | null> => {
   const response = await getUserDetailsApi();
   if (response.ok) {
     const userDetails = response.data;

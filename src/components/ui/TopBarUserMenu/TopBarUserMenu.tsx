@@ -1,4 +1,4 @@
-import { UserDetailsResponse } from '@backendTypes';
+import { UserProfileResponse } from '@backendTypes';
 import { Flex, HStack, Menu } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 
@@ -10,13 +10,13 @@ import { MenuButtonAvatar, UserMenuList } from './components';
 
 export const TopBarUserMenu = () => {
   const { isLogged } = useAuthenticationStatus();
-  const [userDetails, setUserDetails] = useState<UserDetailsResponse>({
+  const [userDetails, setUserDetails] = useState<UserProfileResponse>({
     email: '',
     firstName: '',
     lastName: '',
-    src: '',
-    status: 0,
-    roles: ['User'],
+    avatar: '',
+    status: '',
+    role: 'User',
   });
   useEffect(() => {
     if (isLogged) {
