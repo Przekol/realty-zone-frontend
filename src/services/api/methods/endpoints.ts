@@ -7,4 +7,6 @@ export const ENDPOINTS = {
   emailConfirmationConfirm: '/email-confirmation/confirm',
   userDetails: '/users/profile',
   offersList: '/offers',
+  dictionaries: '/offers/dictionaries',
+  addOffer: '/offers',
 };

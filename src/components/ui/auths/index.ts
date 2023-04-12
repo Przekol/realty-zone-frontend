@@ -1,5 +1,5 @@
-import { AuthFormButton } from './AuthFormButton';
 import { AuthFormCard } from './AuthFormCard';
 import { AuthFormLinks } from './AuthFormLinks';
+import { FormButton } from './FormButton';
 
-export { AuthFormButton, AuthFormCard, AuthFormLinks };
+export { FormButton, AuthFormCard, AuthFormLinks };

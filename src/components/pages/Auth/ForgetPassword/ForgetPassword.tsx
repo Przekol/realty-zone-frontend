@@ -2,7 +2,7 @@ import { FormControl, Input, Stack } from '@chakra-ui/react';
 import React from 'react';
 
 import { CenterContainer } from '@base/CenterContainer';
-import { AuthFormButton, AuthFormCard, AuthFormLinks } from '@ui/auths';
+import { AuthFormCard, AuthFormLinks, FormButton } from '@ui/auths';
 import { AuthFormCaption } from '@ui/captions';
 import { forgetPasswordLinks } from '@utils/data/links';
 
@@ -18,7 +18,7 @@ export const ForgetPassword = () => {
           <FormControl id='email'>
             <Input placeholder='your-email@example.com' _placeholder={{ color: 'gray.500' }} type='email' />
           </FormControl>
-          <AuthFormButton>Zresetuj hasło</AuthFormButton>
+          <FormButton>Zresetuj hasło</FormButton>
           <AuthFormLinks links={forgetPasswordLinks} />
         </Stack>
       </AuthFormCard>
