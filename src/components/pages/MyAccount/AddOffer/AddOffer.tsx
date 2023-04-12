@@ -4,9 +4,10 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 import { CenterContainer } from '@base/CenterContainer';
-import { OfferForm } from '@forms/offer';
+import { OfferForm, OfferPhotosForm } from '@forms/offer';
 
 export const AddOffer = () => {
+  const [offerNumber, setOfferNumber] = React.useState<number | null>(null);
   const dictionaries = useLoaderData() as DictionaryResponse;
 
   return (
@@ -14,7 +15,8 @@ export const AddOffer = () => {
       <Heading fontSize={'4xl'} textAlign={'center'} p={8}>
         Dodaj nową ofertę
       </Heading>
-      <OfferForm dictionaries={dictionaries} />
+      {!offerNumber && <OfferForm dictionaries={dictionaries} setOfferNumber={setOfferNumber} />}
+      {offerNumber && <OfferPhotosForm offerNumber={offerNumber} />}
     </CenterContainer>
   );
 };

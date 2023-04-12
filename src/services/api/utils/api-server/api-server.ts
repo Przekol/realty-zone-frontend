@@ -13,6 +13,8 @@ interface PostOptionsApiServer<RequestBody, ResponseT> extends OptionsApiServer<
 
 type GetOptionsApiServer<ResponseT> = OptionsApiServer<ResponseT>;
 
+type DeleteOptionsApiServer<ResponseT> = OptionsApiServer<ResponseT>;
+
 export const ApiServer = {
   post: async <RequestBody, ResponseT>(
     postOptions: PostOptionsApiServer<RequestBody, ResponseT>,
@@ -30,6 +32,17 @@ export const ApiServer = {
   get: async <ResponseT>(getOptions: GetOptionsApiServer<ResponseT>): Promise<ClientApiResponse<ResponseT>> => {
     return handleRequestWithRefreshTokens(getOptions, () =>
       apiServer.get<ClientApiResponse<ResponseT>>(getOptions.endpoint, getOptions.options, getOptions.isAuthorized),
+    );
+  },
+  delete: async <ResponseT>(
+    deleteOptions: DeleteOptionsApiServer<ResponseT>,
+  ): Promise<ClientApiResponse<ResponseT>> => {
+    return handleRequestWithRefreshTokens(deleteOptions, () =>
+      apiServer.delete<ClientApiResponse<ResponseT>>(
+        deleteOptions.endpoint,
+        deleteOptions.options,
+        deleteOptions.isAuthorized,
+      ),
     );
   },
 };

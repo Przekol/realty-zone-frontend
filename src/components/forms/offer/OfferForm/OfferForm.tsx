@@ -23,9 +23,9 @@ export const OfferFormContainer = ({ children, ...rest }: OfferFormContainerProp
 );
 interface Props {
   dictionaries: DictionaryResponse;
+  setOfferNumber: (number: number) => void;
 }
-export const OfferForm = ({ dictionaries }: Props) => {
-  const [offerNumber, setOfferNumber] = React.useState<number | null>(null);
+export const OfferForm = ({ dictionaries, setOfferNumber }: Props) => {
   const submit = useSubmit();
   const {
     register,

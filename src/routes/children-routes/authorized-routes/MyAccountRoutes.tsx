@@ -1,10 +1,11 @@
 import React from 'react';
-import { RouteObject } from 'react-router-dom';
+import { Navigate, RouteObject } from 'react-router-dom';
 
 import { AddOffer, MyAccount, Profile } from '@pages/MyAccount';
+import { StatusMessage } from '@pages/StatusMessage';
 import { ROUTES } from '@routes/routes';
-import { AddOfferAction } from '@services/actions';
-import { DictionariesLoader } from '@services/loaders';
+import { DeleteOfferLoader, DictionariesLoader } from '@services/loaders';
+import { offerMessages } from '@utils/data/messages';
 
 export const myAccountRoutes: RouteObject[] = [
   {
@@ -12,7 +13,17 @@ export const myAccountRoutes: RouteObject[] = [
     element: <MyAccount />,
     children: [
       { index: true, element: <Profile /> },
-      { path: ROUTES.myAccount.addOffer, element: <AddOffer />, loader: DictionariesLoader, action: AddOfferAction },
+      { path: ROUTES.myAccount.addOffer, element: <AddOffer />, loader: DictionariesLoader },
+      {
+        path: ROUTES.myAccount.successful.addOffer,
+        element: <StatusMessage message={offerMessages.successfulAddOffer} />,
+      },
+      {
+        path: ROUTES.myAccount.deleteOffer,
+        loader: DeleteOfferLoader,
+        element: <Navigate to={ROUTES.myAccount.warning.addOffer} />,
+      },
+      { path: ROUTES.myAccount.warning.addOffer, element: <StatusMessage message={offerMessages.warningAddOffer} /> },
     ],
   },
 ];
