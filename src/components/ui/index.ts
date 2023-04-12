@@ -12,3 +12,4 @@ export * from './SidebarContent';
 export * from './OfferCard';
 export * from './FormField';
 export * from './SelectField';
+export * from './ComingSoon';
