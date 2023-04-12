@@ -45,4 +45,16 @@ export const ApiServer = {
       ),
     );
   },
+  patch: async <RequestBody, ResponseT>(
+    patchOptions: PostOptionsApiServer<RequestBody, ResponseT>,
+  ): Promise<ClientApiResponse<ResponseT>> => {
+    return handleRequestWithRefreshTokens(patchOptions, () =>
+      apiServer.patch<RequestBody, ClientApiResponse<ResponseT>>(
+        patchOptions.endpoint,
+        patchOptions.data,
+        patchOptions.options,
+        patchOptions.isAuthorized,
+      ),
+    );
+  },
 };

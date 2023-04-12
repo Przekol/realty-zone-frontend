@@ -37,7 +37,6 @@ export const OfferForm = ({ dictionaries, setOfferNumber }: Props) => {
     defaultValues,
   });
 
-  // const { onSubmit } = useFormSubmit<OfferRequest>({ reset, method: 'post' });
   const onSubmit = async (data: OfferRequest) => {
     const response = await addOfferApi(data);
     if (response.ok) {
