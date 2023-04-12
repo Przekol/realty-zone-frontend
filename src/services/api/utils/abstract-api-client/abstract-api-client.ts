@@ -1,4 +1,4 @@
-type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
+type Method = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
 export class AbstractApiClient {
   constructor(private readonly baseUrl: string) {}
@@ -23,6 +23,15 @@ export class AbstractApiClient {
     isAuthorized?: boolean,
   ): Promise<ResponseBody> {
     return this.request<RequestBody, ResponseBody>(endpoint, 'PUT', options, body, isAuthorized);
+  }
+
+  async patch<RequestBody, ResponseBody>(
+    endpoint: string,
+    body: RequestBody,
+    options?: RequestInit,
+    isAuthorized?: boolean,
+  ): Promise<ResponseBody> {
+    return this.request<RequestBody, ResponseBody>(endpoint, 'PATCH', options, body, isAuthorized);
   }
 
   async delete<ResponseBody>(endpoint: string, options?: RequestInit, isAuthorized?: boolean): Promise<ResponseBody> {

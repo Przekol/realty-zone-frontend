@@ -7,7 +7,7 @@ import { ENDPOINTS } from '../endpoints';
 
 export const getUserDetailsApi = () => {
   return ApiServer.get<UserProfileResponse>({
-    endpoint: ENDPOINTS.userDetails,
+    endpoint: ENDPOINTS.profile,
     customErrorMessages: errorMessages,
   });
 };

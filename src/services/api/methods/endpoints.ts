@@ -5,7 +5,7 @@ export const ENDPOINTS = {
   refreshTokens: '/authentication/refresh',
   authenticationStatus: '/authentication/status',
   emailConfirmationConfirm: '/email-confirmation/confirm',
-  userDetails: '/users/profile',
+  profile: '/users/profile',
   offersList: '/offers',
   dictionaries: '/offers/dictionaries',
   addOffer: '/offers',
